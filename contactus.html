@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vinu & Associates | Direct Support</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --blue: #0A2647;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--white);
+            color: var(--blue);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            font-size: 0.85rem;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+        }
+        .nav-inner { 
+            height: 90px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logo-text { 
+            font-weight: 800; 
+            color: var(--blue); 
+            font-size: 1.1rem; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+        }
+        .logo-text span { color: var(--gold); }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--blue); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: var(--transition); }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- MOBILE TOGGLE --- */
+        .mobile-toggle { display: none; font-size: 1.5rem; color: var(--blue); cursor: pointer; z-index: 1100; }
+
+        /* --- PAGE HEADER --- */
+        .page-header { 
+            padding: 170px 0 80px; 
+            background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%); 
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--blue); margin-bottom: 15px; }
+        .breadcrumb { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); }
+
+        /* --- CONTACT GRID --- */
+        .contact-section { padding: 80px 0; }
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-card p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 25px;
+            min-height: 50px;
+        }
+
+        /* --- ACTION BUTTONS --- */
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-call { background: var(--blue); color: white; }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-email { background: var(--gold); color: var(--blue); }
+        .btn-map { background: #f0f0f0; color: var(--blue); }
+
+        .btn-contact:hover { opacity: 0.9; transform: scale(1.02); }
+
+        /* --- OFFICE LOCATIONS --- */
+        .office-section { padding: 80px 0; background: var(--light-gray); }
+        .office-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .office-box { background: white; padding: 40px; border-radius: 15px; border-left: 5px solid var(--gold); }
+        .office-box h4 { font-weight: 800; margin-bottom: 10px; font-size: 1.2rem; }
+
+        /* --- FOOTER --- */
+        footer { background: #05162a; color: white; padding: 80px 0 30px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; font-size: 0.8rem; }
+        
+        .footer-logo-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .footer-logo-img {
+            height: 60px;
+            width: fit-content;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6; font-size: 0.7rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-inner { height: 80px; }
+            .nav-logo-img { height: 40px; }
+            .logo-text { font-size: 0.9rem; }
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 80px; right: -100%; width: 100%; height: calc(100vh - 80px);
+                background: white; flex-direction: column; align-items: center; padding-top: 50px; gap: 40px; transition: 0.5s;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .page-header h1 { font-size: 2rem; }
+            .office-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="logo-container">
+                <img src="VNA.png" alt="Vinu & Associates Logo" class="nav-logo-img">
+                <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+            </a>
+            
+            <div class="mobile-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+            
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html" style="color: var(--gold);">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container" data-aos="fade-up">
+            <p class="breadcrumb">Get in Touch / Support[cite: 8]</p>
+            <h1>Connect With Our <br>Legal Experts[cite: 8]</h1>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Phone Call -->
+                <div class="contact-card" data-aos="fade-up">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h3>Call Us[cite: 8]</h3>
+                    <p>Speak directly with our consultants for immediate assistance.[cite: 8]</p>
+                    <a href="tel:+919901952524" class="btn-contact btn-call"><i class="fa-solid fa-phone"></i> +91 99019 52524[cite: 8]</a>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3>WhatsApp[cite: 8]</h3>
+                    <p>Chat with us for quick queries and document status updates.[cite: 8]</p>
+                    <a href="https://wa.me/919901952524" class="btn-contact btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Message Us[cite: 8]</a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <h3>Email Us[cite: 8]</h3>
+                    <p>Send us your detailed requirements or formal proposals.[cite: 8]</p>
+                    <a href="mailto:bengaluru@csva.in" class="btn-contact btn-email"><i class="fa-solid fa-envelope"></i> bengaluru@csva.in[cite: 8]</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="office-section">
+        <div class="container">
+            <div class="office-grid">
+                <!-- Bengaluru Office -->
+                <div class="office-box" data-aos="fade-right">
+                    <h4>Bengaluru Office[cite: 8]</h4>
+                    <p style="margin-bottom: 20px; color: #555;">No. 202, 2nd Floor, 'B' Block, Carlton Towers, No. 1, Old Airport Road, Bengaluru - 560008[cite: 8]</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-contact btn-map"><i class="fa-solid fa-location-dot"></i> View on Google Maps</a>
+                </div>
+
+                <!-- Kochi Office -->
+                <div class="office-box" data-aos="fade-left">
+                    <h4>Kochi Office[cite: 8]</h4>
+                    <p style="margin-bottom: 20px; color: #555;">Door No. 40/9613, 2nd Floor, Vallamattam Estate, Ravipuram, M.G. Road, Kochi - 682015[cite: 8]</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-contact btn-map"><i class="fa-solid fa-location-dot"></i> View on Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col footer-logo-box">
+                <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
+                <h2 style="color:var(--gold); font-size: 1.2rem;">VINU & ASSOCIATES[cite: 8]</h2>
+                <p style="opacity:0.8;">Integrated corporate law and secretarial solutions for sustainable business growth.[cite: 8]</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="color: var(--gold); margin-bottom: 15px;">Offices[cite: 8]</h4>
+                <p>Bengaluru | Kochi[cite: 8]</p>
+                <p style="margin-top: 5px;">bengaluru@csva.in[cite: 8]</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="color: var(--gold); margin-bottom: 15px;">Quick Support[cite: 8]</h4>
+                <p>+91 95444 14067[cite: 8]</p>
+                <p>+91 99019 52524[cite: 8]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vinu & Associates. All Rights Reserved.[cite: 8]</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const icon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            if (navList.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

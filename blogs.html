@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & News | Vinu & Associates | Corporate Law Blog</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --blue: #0A2647;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --section-padding: 100px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--white);
+            color: var(--blue);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            font-size: 0.85rem;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+        }
+        .nav-inner { 
+            height: 90px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+        .nav-logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logo-text { 
+            font-weight: 800; 
+            color: var(--blue); 
+            font-size: 1.1rem; 
+            letter-spacing: 1px; 
+            text-transform: uppercase; 
+        }
+        .logo-text span { color: var(--gold); }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--blue); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: var(--transition); }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- MOBILE TOGGLE --- */
+        .mobile-toggle { display: none; font-size: 1.5rem; color: var(--blue); cursor: pointer; z-index: 1100; }
+
+        /* --- PAGE HEADER --- */
+        .page-header { 
+            padding: 170px 0 80px; 
+            background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%); 
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--blue); margin-bottom: 15px; }
+        .breadcrumb { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); }
+
+        /* --- BLOG GRID --- */
+        .blog-section { padding: var(--section-padding) 0; background-color: var(--white); }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+
+        .blog-image {
+            height: 220px;
+            background: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .blog-image::after {
+            content: 'ARTICLE';
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: var(--gold);
+            color: var(--blue);
+            padding: 4px 12px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            border-radius: 4px;
+        }
+
+        .blog-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-content h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--blue);
+        }
+
+        .blog-content p {
+            font-size: 0.85rem;
+            color: #667;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            margin-top: auto;
+            text-decoration: none;
+            color: var(--blue);
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .read-more i { transition: 0.3s; }
+        .read-more:hover { color: var(--gold); }
+        .read-more:hover i { transform: translateX(5px); }
+
+        /* --- FOOTER --- */
+        footer { background: #05162a; color: white; padding: 80px 0 30px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; font-size: 0.8rem; }
+        
+        .footer-logo-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .footer-logo-img {
+            height: 60px;
+            width: fit-content;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6; font-size: 0.7rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            :root { --section-padding: 60px; }
+            .mobile-toggle { display: block; }
+            .nav-inner { height: 80px; }
+            .nav-logo-img { height: 40px; }
+            .logo-text { font-size: 0.9rem; }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                gap: 40px;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            .page-header h1 { font-size: 2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="logo-container">
+                <img src="VNA.png" alt="Vinu & Associates Logo" class="nav-logo-img">
+                <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+            </a>
+            
+            <div class="mobile-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blogs.html" style="color: var(--gold);">Blogs</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container" data-aos="fade-up">
+            <p class="breadcrumb">Knowledge Hub / Articles</p>
+            <h1>Latest Insights & <br>Corporate Updates</h1>
+        </div>
+    </header>
+
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card" data-aos="fade-up">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">May 15, 2026</span>
+                        <h3>Understanding SEBI LODR Amendments for 2026</h3>
+                        <p>A comprehensive guide on the latest regulatory changes affecting listed entities and the new disclosure requirements for institutional investors.[cite: 6]</p>
+                        <a href="blog-sebi-updates.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-building-circle-check"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 28, 2026</span>
+                        <h3>IPO Readiness: A Compliance Checklist</h3>
+                        <p>Transitioning from private to public? Ensure your corporate governance framework is ready for the scrutiny of the capital markets.[cite: 6]</p>
+                        <a href="blog-ipo-checklist.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 10, 2026</span>
+                        <h3>The Role of Independent Directors in 2026</h3>
+                        <p>Exploring the evolving fiduciary responsibilities and statutory obligations of independent directors in modern corporate governance.[cite: 6]</p>
+                        <a href="blog-independent-directors.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card" data-aos="fade-up">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-handshake-simple"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">March 22, 2026</span>
+                        <h3>FEMA Compliance for Foreign Direct Investment</h3>
+                        <p>Essential steps for foreign entities to navigate Indian regulatory landscapes while ensuring seamless capital inflow and compliance.[cite: 6]</p>
+                        <a href="blog-fema-guide.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">March 05, 2026</span>
+                        <h3>Drafting Effective Shareholder Agreements</h3>
+                        <p>Protecting interests through robust clauses. Why every startup needs a clearly defined exit strategy in their legal documentation.[cite: 6]</p>
+                        <a href="blog-shareholder-agreements.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-image">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">February 14, 2026</span>
+                        <h3>NCLT Trends in Insolvency & Bankruptcy</h3>
+                        <p>Analyzing recent landmark judgments and how they shape the resolution process for stressed corporate assets in the current economy.[cite: 6]</p>
+                        <a href="blog-nclt-trends.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col footer-logo-box">
+                <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
+                <h2 style="color:var(--gold); font-size: 1.2rem;">VINU & ASSOCIATES</h2>
+                <p style="opacity:0.8;">Providing integrated corporate law, secretarial, and governance solutions to drive sustainable business growth.[cite: 6]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Registered Offices</h4>
+                <p>Bengaluru | Kochi[cite: 6]</p>
+                <p style="margin-top: 10px;">Email: bengaluru@csva.in[cite: 6]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <p>Phone: +91 9901952524[cite: 6]</p>
+                <p>Phone: +91 9544414067[cite: 6]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vinu & Associates. All Rights Reserved.[cite: 6]</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        // MOBILE MENU LOGIC
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const icon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            if (navList.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
