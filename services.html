@@ -5,176 +5,405 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Vinu & Associates | Corporate Governance & Compliance</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #D4AF37;
-            --blue: #0A2647;
-            --white: #FFFFFF;
-            --light-gray: #F8FAFC;
+            --primary: #0A2647;
+            --primary-light: #144272;
+            --primary-dark: #05162a;
+            --accent: #D4AF37;
+            --accent-muted: #EAD075;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --bg-pure: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-card: #FFFFFF;
+            
+            /* Modern Refined Pastel & Tint Palette */
+            --tint-gold: #FDFBF7;
+            --tint-blue: #F0F7FF;
+            --tint-green: #F2FBF5;
+            --tint-slate: #F1F5F9;
+            
             --section-padding: 100px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-speed: 0.5s;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--white);
-            color: var(--blue);
-            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-pure);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
-            font-size: 0.85rem;
+            letter-spacing: -0.01em;
             overflow-x: hidden;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 4rem; }
 
-        /* --- NAVIGATION --- */
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+        }
+
+        /* --- MODERN MINIMALIST NAVIGATION --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--gold);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            transition: var(--transition-speed) var(--transition-smooth);
         }
-        .nav-inner { 
-            height: 90px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
+        .nav-inner {
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+        }
+        @media (max-width: 768px) {
+            .nav-inner { padding: 0 1.5rem; height: 80px; }
         }
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 12px;
+            gap: 14px;
         }
         .nav-logo-img {
             height: 50px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
         }
-        .logo-text { 
-            font-weight: 800; 
-            color: var(--blue); 
-            font-size: 1.1rem; 
-            letter-spacing: 1px; 
-            text-transform: uppercase; 
+        .logo-text-wrapper { display: flex; flex-direction: column; }
+        .logo-text {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            line-height: 1.1;
         }
-        .logo-text span { color: var(--gold); }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--blue); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: var(--transition); }
-        .nav-links a:hover { color: var(--gold); }
-
-        /* --- MOBILE TOGGLE --- */
+        .logo-text span { color: var(--accent); }
+        .logo-subtext {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1px;
+        }
+        .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover { color: var(--accent); }
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
-            color: var(--blue);
+            color: var(--primary);
             cursor: pointer;
             z-index: 1100;
         }
 
-        /* --- PAGE HEADER --- */
+        /* --- REFINED PAGE HEADER --- */
         .page-header { 
-            padding: 170px 0 80px; 
-            background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%); 
+            padding: 200px 0 100px; 
+            background: linear-gradient(rgba(10, 38, 71, 0.88), rgba(5, 22, 42, 0.96)), 
+                        url('https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             text-align: center;
+            color: var(--bg-pure);
         }
-        .page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--blue); margin-bottom: 15px; }
-        .breadcrumb { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); }
+        .page-header h1 { 
+            font-size: 3.4rem; 
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            letter-spacing: -0.02em;
+        }
+        .breadcrumb { 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            color: var(--accent); 
+            margin-bottom: 10px;
+            display: block;
+        }
 
-        /* --- SERVICE SECTIONS --- */
-        section { padding: var(--section-padding) 0; }
-        .bg-alt { background-color: var(--light-gray); }
-        .section-title { margin-bottom: 50px; }
-        .section-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 800; display: block; margin-bottom: 10px; }
-        .section-title h2 { font-size: 1.8rem; font-weight: 800; color: var(--blue); }
+        /* --- COHESIVE EY LAYOUT SECTION --- */
+        .ey-services-section {
+            background-color: var(--primary-dark); 
+            color: var(--bg-pure);
+            padding: var(--section-padding) 0;
+        }
 
-        .service-list-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 25px; 
+        .ey-services-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+            min-height: 650px;
         }
-        .service-item-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #eee;
-            transition: var(--transition);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .service-item-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .service-item-card i { color: var(--gold); font-size: 1.2rem; margin-top: 3px; }
-        .service-item-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--blue); }
 
-        /* --- FOOTER --- */
-        footer { background: #05162a; color: white; padding: 80px 0 30px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; font-size: 0.8rem; }
-        
-        .footer-logo-box {
+        /* Column 1: Static Intro */
+        .ey-intro-col {
+            position: sticky;
+            top: 140px;
+            padding-right: 20px;
+        }
+        .ey-intro-col h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--bg-pure);
+            letter-spacing: -0.02em;
+        }
+        .ey-intro-col p {
+            color: #94A3B8;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+        .ey-explore-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--bg-pure);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            border-radius: 4px;
+            transition: all 0.4s var(--transition-smooth);
+        }
+        .ey-explore-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Column 2: Interactive Menu Buttons */
+        .ey-menu-col {
+            border-left: 1px solid rgba(255,255,255,0.08);
             display: flex;
             flex-direction: column;
-            gap: 20px;
         }
-        .footer-logo-img {
-            height: 60px;
-            width: fit-content;
-            background: white;
-            padding: 5px;
-            border-radius: 5px;
+        .ey-menu-item {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
-        .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6; font-size: 0.7rem; }
+        .ey-menu-btn {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 24px 25px;
+            text-align: left;
+            color: #94A3B8;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+        .ey-menu-btn i {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            transition: var(--transition-speed) var(--transition-smooth);
+        }
+        .ey-menu-btn:hover {
+            background: rgba(255,255,255,0.02);
+            color: var(--bg-pure);
+        }
+        .ey-menu-btn.active {
+            color: var(--bg-pure);
+            font-weight: 700;
+            background: rgba(255,255,255,0.04);
+        }
+        .ey-menu-btn.active::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--accent);
+        }
+        .ey-menu-btn.active i {
+            transform: translateX(6px);
+            color: var(--accent);
+            opacity: 1;
+        }
 
-        /* --- RESPONSIVE --- */
+        /* Mobile Nested Content Holder */
+        .ey-mobile-inline-content {
+            display: none;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* Column 3: Display Panels (Desktop View) */
+        .ey-details-col {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            padding: 45px;
+            min-height: 500px;
+            position: sticky;
+            top: 140px;
+        }
+        .ey-panel { display: none; }
+        .ey-panel.active {
+            display: block;
+            animation: fadeIn 0.4s var(--transition-smooth) forwards;
+        }
+        .ey-panel h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            padding-bottom: 18px;
+            letter-spacing: -0.01em;
+        }
+        .sub-services-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .sub-services-list li {
+            font-size: 1rem;
+            color: #CBD5E1;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .sub-services-list li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-top: -2px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- THE ARCHITECTURAL FOOTER --- */
+        footer { 
+            background: #040D12; 
+            color: #94A3B8; 
+            padding: 100px 0 40px; 
+        }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
+            gap: 60px; 
+        }
+        .footer-brand-box { display: flex; flex-direction: column; gap: 25px; }
+        .footer-logo-wrap { display: flex; align-items: center; gap: 16px; }
+        .footer-logo-img {
+            height: 55px; width: auto;
+            background: var(--bg-pure); padding: 6px;
+            border-radius: 4px;
+        }
+        .footer-brand-title {
+            color: var(--bg-pure); font-size: 1.25rem; font-weight: 800;
+            letter-spacing: -0.02em; line-height: 1.1;
+        }
+        .footer-brand-title span {
+            display: block; font-size: 0.75rem; color: var(--accent);
+            font-weight: 600; letter-spacing: 0.05em; margin-top: 2px;
+        }
+        .footer-col h4 { 
+            color: var(--bg-pure); margin-bottom: 30px; 
+            text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem;
+            font-weight: 700; position: relative; padding-bottom: 10px;
+        }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent); }
+        .address-block { margin-bottom: 25px; }
+        .address-block h5 { color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+        .address-block p { line-height: 1.6; font-size: 0.9rem; color: #94A3B8; }
+        .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 0.9rem; }
+        .contact-item i { color: var(--accent); margin-top: 4px; width: 16px; text-align: center; }
+        .contact-item a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: var(--bg-pure); }
+        .footer-bottom { margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.8rem; color: #64748B; }
+
+        /* --- RESPONSIVE WORKFLOWS --- */
+        @media (max-width: 1024px) {
+            .ey-services-layout { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
+            .ey-intro-col { position: static; padding-right: 0; text-align: center; margin-bottom: 15px; }
+            .ey-intro-col p { margin-bottom: 25px; }
+            .ey-details-col { display: none !important; }
+            .ey-menu-col { border-left: none; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; background: rgba(255, 255, 255, 0.01); overflow: hidden; }
+            .ey-menu-btn { padding: 20px; font-size: 1rem; }
+            .ey-menu-btn i { transform: rotate(90deg); opacity: 0.7; }
+            .ey-menu-btn.active { background: rgba(212, 175, 55, 0.08); color: var(--accent); border-bottom: none; }
+            .ey-menu-btn.active i { transform: rotate(270deg); color: var(--accent); }
+            .ey-menu-btn.active::before { width: 4px; }
+            .ey-menu-item.active-accordion .ey-mobile-inline-content { display: block; animation: fadeIn 0.4s ease forwards; }
+        }
+
         @media (max-width: 768px) {
-            :root { --section-padding: 60px; }
             .mobile-toggle { display: block; }
-            .nav-inner { height: 80px; }
-            .nav-logo-img { height: 40px; }
-            .logo-text { font-size: 0.9rem; }
-            
             .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                gap: 40px;
-                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                position: fixed; top: 80px; right: -100%;
+                width: 100%; height: calc(100vh - 80px);
+                background: var(--bg-pure); flex-direction: column;
+                align-items: flex-start; padding: 60px 2rem; gap: 30px;
+                transition: right 0.5s var(--transition-smooth);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             }
             .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.2rem; }
-            .service-list-grid { grid-template-columns: 1fr; }
-            .page-header h1 { font-size: 2rem; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links a { font-size: 1.1rem; }
+            .page-header { padding: 160px 0 60px; }
+            .page-header h1 { font-size: 2.4rem; }
+            .ey-intro-col h2 { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- MODERN NAV BAR -->
     <nav>
-        <div class="container nav-inner">
+        <div class="nav-inner">
             <a href="index.html" class="logo-container">
                 <img src="VNA.png" alt="Vinu & Associates Logo" class="nav-logo-img">
-                <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+                <div class="logo-text-wrapper">
+                    <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+                    <div class="logo-subtext">Practicing Company Secretaries</div>
+                </div>
             </a>
             
             <div class="mobile-toggle" id="mobile-menu">
@@ -183,7 +412,7 @@
 
             <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" style="color: var(--gold);">Services</a></li>
+                <li><a href="services.html" style="color: var(--accent);">Services</a></li>
                 <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact</a></li>
@@ -191,133 +420,381 @@
         </div>
     </nav>
 
+    <!-- HEADER SECTION -->
     <header class="page-header">
         <div class="container" data-aos="fade-up">
-            <p class="breadcrumb">Expertise / Our Solutions</p>
-            <h1>Comprehensive Corporate<br>& Regulatory Services</h1>
+            <p class="breadcrumb">Expertise & Solutions</p>
+            <h1>Our Global Practice Offerings</h1>
         </div>
     </header>
 
-    <section>
-        <div class="container">
-            <div class="section-title" data-aos="fade-right">
-                <span class="section-tag">Incorporation</span>
-                <h2>Corporate Registrations & Business Setup</h2>
+    <!-- INTERACTIVE PORTAL SECTION -->
+    <section class="ey-services-section">
+        <div class="container ey-services-layout">
+            
+            <!-- COLUMN 1: INTRO TEXT -->
+            <div class="ey-intro-col" data-aos="fade-right">
+                <h2>Services</h2>
+                <p>Vinu & Associates delivers robust legal solutions across multiple corporate dimensions. Enabled by deep domain intelligence and experience, our advisory establishes trust through compliance protection across your business timeline.</p>
+                <a href="contactus.html" class="ey-explore-btn">Get In Touch</a>
             </div>
-            <div class="service-list-grid">
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Private Company Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>LLP Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Section 8 Company Setup</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Foreign Entity Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Trust & Society Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Trademark Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>MSME Registration</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-circle-check"></i><h4>Import Export Code (IEC)</h4></div>
+
+            <!-- COLUMN 2: INTERACTIVE HEADINGS WITH INLINE MOBILE ACCORDIONS -->
+            <div class="ey-menu-col" data-aos="fade-up" id="servicesAccordionMenu">
+                
+                <!-- Category 1 -->
+                <div class="ey-menu-item active-accordion" data-target="corp-reg">
+                    <button class="ey-menu-btn active" onclick="handleServiceClick(event, 'corp-reg')">
+                        Corporate Registrations <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Private Company incorporation</li>
+                            <li>Public Company incorporation</li>
+                            <li>Foreign entity registration</li>
+                            <li>Section 8 Company registration</li>
+                            <li>Limited Liability Partnership (LLP) registration</li>
+                            <li>Society and Trust registration</li>
+                            <li>MSME registration</li>
+                            <li>Partnership firm registration</li>
+                            <li>Proprietorship registration</li>
+                            <li>Trademark registration</li>
+                            <li>POSH policy and committee setup</li>
+                            <li>Import Export Code (IEC) registration</li>
+                            <li>Insurance Advisor registration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="ey-menu-item" data-target="corp-gov">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'corp-gov')">
+                        Corporate Governance & Ongoing Compliances <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Companies Act, 2013 compliances</li>
+                            <li>SEBI LODR compliances</li>
+                            <li>SEBI PIT Regulations compliances</li>
+                            <li>SEBI SAST Regulations compliances</li>
+                            <li>NBFC compliances</li>
+                            <li>Insurance Advisor compliances</li>
+                            <li>IRDAI Corporate Agent advisory and compliances</li>
+                            <li>LLP compliances</li>
+                            <li>Partnership firm compliances</li>
+                            <li>POSH compliances</li>
+                            <li>Trust and Society law compliances</li>
+                            <li>Legal Metrology compliances</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="ey-menu-item" data-target="audits">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'audits')">
+                        Audits & Certifications <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Secretarial Audit and certification services</li>
+                            <li>Share Reconciliation Certificate</li>
+                            <li>Quarterly Compliance Audit</li>
+                            <li>Share Transfer Audit</li>
+                            <li>Corporate Governance Audit</li>
+                            <li>Legal Documentation Audit</li>
+                            <li>Certification of Annual Return in Form MGT-8 and related annual filing support</li>
+                            <li>Certification relating to ESOP, Sweat Equity issuance and other corporate law matters</li>
+                            <li>Certification for Consortium / Multiple Banking Arrangements as per RBI guidelines</li>
+                            <li>Advisory and implementation of Corporate Governance standards</li>
+                            <li>Drafting of policies under Companies Act, 2013 and SEBI regulations</li>
+                            <li>Business Responsibility Reports and Information Memorandum</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="ey-menu-item" data-target="capital-market">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'capital-market')">
+                        Capital Market, IPO & Listing <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>IPO advisory and DRHP / RHP vetting</li>
+                            <li>Virtual Data Room setup</li>
+                            <li>Due diligence support</li>
+                            <li>Coordination with BRLMs, legal counsels and other intermediaries</li>
+                            <li>Due Diligence Report and Compliance Certificate</li>
+                            <li>SEBI LODR compliance and governance advisory</li>
+                            <li>Further issue advisory under SEBI ICDR Regulations, 2018</li>
+                            <li>SEBI Takeover Code / SAST Regulations advisory</li>
+                            <li>SEBI PIT Regulations advisory and compliances</li>
+                            <li>Dematerialisation of shares</li>
+                            <li>Re-materialisation of shares</li>
+                            <li>ISIN generation</li>
+                            <li>NSDL / CDSL compliance and reporting formalities</li>
+                            <li>Release of shares from Investor Education and Protection Fund (IEPF)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="ey-menu-item" data-target="restructuring">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'restructuring')">
+                        Mergers, Amalgamations & Restructuring <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Mergers, amalgamations, demergers and schemes of arrangement</li>
+                            <li>Capital reduction and other restructuring schemes</li>
+                            <li>Acquisitions, joint ventures and strategic restructuring arrangements</li>
+                            <li>Advisory on restructuring structures considering tax and stamp duty implications</li>
+                            <li>Buy-back of shares</li>
+                            <li>Liquidation / winding-up of companies</li>
+                            <li>Corporate restructuring advisory for domestic and cross-border transactions</li>
+                            <li>Foreign subsidiary mergers and related advisory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="ey-menu-item" data-target="fema">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'fema')">
+                        FEMA, FDI & Cross-Border <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Advisory on FEMA matters, including compounding of offences</li>
+                            <li>Setting up of foreign subsidiaries, joint ventures, branch offices, liaison offices and project offices</li>
+                            <li>FDI compliances and approvals under the extant government approval route, wherever applicable</li>
+                            <li>External Commercial Borrowings (ECB) compliances</li>
+                            <li>Setting up of entities outside India and related overseas compliances</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 7 -->
+                <div class="ey-menu-item" data-target="esop">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'esop')">
+                        ESOPs & Employee Benefits <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>End-to-end ESOP implementation advisory</li>
+                            <li>Formulation and drafting of ESOP plans</li>
+                            <li>Compliances under Companies Act, 2013 and SEBI SBEB & SE Regulations, 2021</li>
+                            <li>Advisory on grant, vesting and exercise of ESOPs</li>
+                            <li>Employee education sessions on ESOPs</li>
+                            <li>Standardisation of ESOP plans across portfolio companies for VC funds</li>
+                            <li>ESOP-related filings and ongoing compliances</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 8 -->
+                <div class="ey-menu-item" data-target="finance">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'finance')">
+                        Corporate Finance & Funding <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Private equity advisory</li>
+                            <li>Preferential allotment of shares, debentures and other securities</li>
+                            <li>Structuring of VC / PE deals</li>
+                            <li>Due diligence of investee companies</li>
+                            <li>Drafting and vetting of transaction documents</li>
+                            <li>Sweat Equity advisory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 9 -->
+                <div class="ey-menu-item" data-target="ibc">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'ibc')">
+                        IBC & Valuation <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Insolvency resolution advisory services</li>
+                            <li>Representation before the Committee of Creditors</li>
+                            <li>Drafting of resolution plans</li>
+                            <li>Voluntary liquidation</li>
+                            <li>Valuation of financial assets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 10 -->
+                <div class="ey-menu-item" data-target="representation">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'representation')">
+                        Representation before Authorities <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Appearance and petitions before the National Company Law Tribunal (NCLT)</li>
+                            <li>Applications before the Regional Director (RD), Registrar of Companies (RoC) and Official Liquidator (OL)</li>
+                            <li>Matters relating to shifting of registered office</li>
+                            <li>Name rectification matters</li>
+                            <li>Compounding of offences and adjudication of penalties</li>
+                            <li>Representation in mergers, amalgamations and restructuring matters</li>
+                            <li>Representation before SEBI, RBI and other regulatory authorities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 11 -->
+                <div class="ey-menu-item" data-target="ancillary">
+                    <button class="ey-menu-btn" onclick="handleServiceClick(event, 'ancillary')">
+                        Ancillary Services <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <div class="ey-mobile-inline-content">
+                        <ul class="sub-services-list">
+                            <li>Legal advisory under various corporate laws</li>
+                            <li>Drafting and vetting of agreements</li>
+                            <li>Corporate Social Responsibility advisory and compliances</li>
+                            <li>Training for Board members and Senior Management</li>
+                            <li>Arbitration-related support</li>
+                            <li>Website audit under applicable laws</li>
+                            <li>Legal Metrology audit</li>
+                            <li>Factory audit</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- COLUMN 3: DESKTOP-ONLY SIDE DISPLAY PANELS -->
+            <div class="ey-details-col" id="desktopDetailsPanel" data-aos="fade-left">
+                <div id="desktopPanelContent"></div>
+            </div>
+
         </div>
     </section>
 
-    <section class="bg-alt">
-        <div class="container">
-            <div class="section-title" data-aos="fade-right">
-                <span class="section-tag">Governance</span>
-                <h2>Corporate Compliance & Governance</h2>
-            </div>
-            <div class="service-list-grid">
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>Companies Act Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>SEBI LODR Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>SEBI PIT & SAST Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>NBFC Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>LLP Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>POSH Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>Legal Metrology Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-shield-halved"></i><h4>Corporate Governance Advisory</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="section-title" data-aos="fade-right">
-                <span class="section-tag">Capital Markets</span>
-                <h2>IPO, Listing & SEBI Advisory</h2>
-            </div>
-            <div class="service-list-grid">
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>IPO Advisory & DRHP/RHP Vetting</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>Secretarial Audit</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>Annual Compliance Reporting</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>ESOP Advisory</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>Share Transfer Compliance</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>ISIN Generation</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i><h4>Dematerialisation & Re-materialisation</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-alt">
-        <div class="container">
-            <div class="section-title" data-aos="fade-right">
-                <span class="section-tag">Assets & Insolvency</span>
-                <h2>Corporate Finance & Valuation</h2>
-            </div>
-            <div class="service-list-grid">
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Private Equity Advisory</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Preferential Allotments</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Debt Recovery Advisory</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Insolvency & Resolution Services</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Resolution Plan Drafting</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Voluntary Liquidation</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-coins"></i><h4>Valuation of Financial Assets</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="section-title" data-aos="fade-right">
-                <span class="section-tag">Litigation</span>
-                <h2>Legal Representation & Advisory</h2>
-            </div>
-            <div class="service-list-grid">
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>NCLT Representation</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>RBI & SEBI Representation</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>ROC & Regional Director Matters</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>Agreement Drafting & Vetting</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>Due Diligence</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>Corporate Law Advisory</h4></div>
-                <div class="service-item-card" data-aos="fade-up"><i class="fa-solid fa-gavel"></i><h4>Arbitration Support</h4></div>
-            </div>
-        </div>
-    </section>
-
+    <!-- ARCHITECTURAL FOOTER SECTION -->
     <footer id="contact">
-        <div class="container footer-grid">
-            <div class="footer-col footer-logo-box">
-                <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                <h2 style="color:var(--gold); font-size: 1.2rem;">VINU & ASSOCIATES</h2>
-                <p style="opacity:0.8;">Providing integrated corporate law, secretarial, and governance solutions to drive sustainable business growth.</p>
+        <div class="container footer-grid" data-aos="fade-up">
+            <div class="footer-col footer-brand-box">
+                <div class="footer-logo-wrap">
+                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
+                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
+                </div>
+                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
             </div>
+            
             <div class="footer-col">
-                <h4>Registered Offices</h4>
-                <p>Bengaluru | Kochi</p>
-                <p style="margin-top: 10px;">Email: bengaluru@csva.in</p>
+                <h4>Offices</h4>
+                <div class="address-block">
+                    <h5>Head Office</h5>
+                    <p>
+                        #155, Suvarna, Ground Floor,<br>
+                        5th Cross, Narayana Nagar 1st Block,<br>
+                        BOOHBCS Layout, Doddakallasandra,<br>
+                        Bengaluru – 5600062
+                    </p>
+                </div>
+                <div class="address-block">
+                    <h5>Branch Office</h5>
+                    <p>
+                        1st Floor, Ram Nivas,<br>
+                        Behind KCF Towers, Lane Adjacent to RoC,<br>
+                        Kerala, Thrikkakara, Ernakulam,<br>
+                        Kerala – 682021
+                    </p>
+                </div>
             </div>
+            
             <div class="footer-col">
                 <h4>Contact Details</h4>
-                <p>Phone: +91 9901952524</p>
-                <p>Phone: +91 9544414067</p>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" style="margin-top: 15px;">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
+                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
+                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" style="margin-top: 15px;">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Vinu & Associates. All Rights Reserved.</p>
+            <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, offset: 100 });
+        AOS.init({ duration: 1200, once: true, offset: 150 });
 
-        // MOBILE MENU LOGIC
+        // UNIFIED ENGINE (DESKTOP TABS & MOBILE ACCORDIONS)
+        function handleServiceClick(event, targetId) {
+            const width = window.innerWidth;
+            
+            if (width > 1024) {
+                document.querySelectorAll('.ey-menu-btn').forEach(btn => btn.classList.remove('active'));
+                event.currentTarget.classList.add('active');
+                
+                const selectedItem = event.currentTarget.closest('.ey-menu-item');
+                const listData = selectedItem.querySelector('.ey-mobile-inline-content').innerHTML;
+                const listTitle = event.currentTarget.textContent.trim();
+                
+                const displayArea = document.getElementById('desktopPanelContent');
+                displayArea.style.opacity = 0;
+                
+                setTimeout(() => {
+                    displayArea.innerHTML = `<div class="ey-panel active"><h3>${listTitle}</h3>${listData}</div>`;
+                    displayArea.style.opacity = 1;
+                }, 150);
+
+            } else {
+                const clickedItem = event.currentTarget.closest('.ey-menu-item');
+                const isCurrentlyActive = clickedItem.classList.contains('active-accordion');
+                
+                document.querySelectorAll('.ey-menu-item').forEach(item => {
+                    item.classList.remove('active-accordion');
+                    item.querySelector('.ey-menu-btn').classList.remove('active');
+                });
+                
+                if (!isCurrentlyActive) {
+                    clickedItem.classList.add('active-accordion');
+                    event.currentTarget.classList.add('active');
+                    
+                    setTimeout(() => {
+                        clickedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            }
+        }
+
+        function initDesktopDisplay() {
+            if (window.innerWidth > 1024) {
+                const initialActive = document.querySelector('.ey-menu-item.active-accordion .ey-menu-btn');
+                if (initialActive) {
+                    const listData = initialActive.closest('.ey-menu-item').querySelector('.ey-mobile-inline-content').innerHTML;
+                    const listTitle = initialActive.textContent.trim();
+                    document.getElementById('desktopPanelContent').innerHTML = `<div class="ey-panel active"><h3>${listTitle}</h3>${listData}</div>`;
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', initDesktopDisplay);
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 1024) {
+                initDesktopDisplay();
+            }
+        });
+
+        // MOBILE SIDE DRAWER ACTIONS
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         const icon = menuToggle.querySelector('i');

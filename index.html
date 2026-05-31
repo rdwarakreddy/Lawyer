@@ -4,44 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinu & Associates | Corporate Governance & Compliance</title>
+    <title>Vinu & Associates | Practicing Company Secretaries</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #D4AF37;
-            --blue: #0A2647;
-            --white: #FFFFFF;
-            --light-gray: #F8FAFC;
-            --section-padding: 100px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --primary: #0A2647;
+            --primary-light: #144272;
+            --primary-dark: #05162a;
+            --accent: #D4AF37;
+            --accent-muted: #EAD075;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --bg-pure: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-card: #FFFFFF;
+            
+            /* Modern Refined Pastel & Tint Palette */
+            --tint-gold: #FDFBF7;
+            --tint-blue: #F0F7FF;
+            --tint-green: #F2FBF5;
+            --tint-slate: #F1F5F9;
+            
+            --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-speed: 0.5s;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body {
-            background-color: var(--white);
-            color: var(--blue);
-            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-pure);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
-            font-size: 0.85rem;
             overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { 
+            max-width: 1440px; 
+            margin: 0 auto; 
+            padding: 0 4rem; 
+        }
 
-        /* --- NAVIGATION --- */
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+        }
+
+        /* --- MODERN MINIMALIST NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--gold);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            transition: var(--transition-speed) var(--transition-smooth);
         }
 
         .nav-inner {
@@ -49,164 +76,754 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner { padding: 0 1.5rem; height: 80px; }
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 12px;
+            gap: 14px;
         }
 
         .nav-logo-img {
             height: 50px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
         }
 
         .logo-text {
             font-weight: 800;
-            color: var(--blue);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
+            color: var(--primary);
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
             text-transform: uppercase;
+            line-height: 1.1;
         }
 
-        .logo-text span { color: var(--gold); }
+        .logo-text span { color: var(--accent); }
+        
+        .logo-subtext {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1px;
+        }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 40px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--blue);
-            font-size: 0.75rem;
-            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            transition: var(--transition);
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover { 
+            color: var(--accent); 
+        }
 
-        /* --- MOBILE MENU TOGGLE --- */
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
-            color: var(--blue);
+            color: var(--primary);
             cursor: pointer;
             z-index: 1100;
-            transition: 0.3s;
         }
 
-        /* --- HERO --- */
-        .hero {
-            padding: 180px 0 100px;
-            text-align: center;
-            background: radial-gradient(circle at center, #ffffff 0%, #f0f4f8 100%);
-        }
-
-        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-
-        .btn-group { display: flex; gap: 15px; justify-content: center; margin: 40px 0; }
-        .btn { padding: 14px 30px; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; border-radius: 50px; transition: var(--transition); }
-        .btn-primary { background: var(--blue); color: var(--white); border: 2px solid var(--blue); }
-        .btn-secondary { border: 2px solid var(--blue); color: var(--blue); }
-        .btn:hover { background: var(--gold); border-color: var(--gold); color: var(--blue); transform: translateY(-3px); }
-
-        .highlights-bar {
+        /* --- ASYMMETRIC HERO SPLIT BLOCK --- */
+        .hero-section {
+            padding-top: 90px;
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: 1.2fr 0.8fr;
+            background: var(--bg-soft);
+        }
+
+        .hero-content-side {
+            padding: 120px 4rem 100px 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-pure);
+        }
+
+        .hero-visual-side {
+            background: linear-gradient(rgba(10, 38, 71, 0.85), rgba(5, 22, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .hero-section .section-tag {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-section h1 { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.8rem; 
+            font-weight: 800; 
+            color: var(--primary);
+            line-height: 1.2; 
+            margin-bottom: 35px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-section h1 span.serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.01em;
+        }
+
+        .btn-group { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 40px;
+        }
+        
+        .btn { 
+            padding: 18px 38px; 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            border-radius: 4px; 
+            transition: all 0.4s var(--transition-smooth); 
+            letter-spacing: 0.08em;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary { 
+            background: var(--primary); 
+            color: var(--bg-pure); 
+            border: 1px solid var(--primary); 
+        }
+        
+        .btn-secondary { 
+            border: 1px solid rgba(10, 38, 71, 0.15); 
+            color: var(--primary); 
+            background: transparent; 
+        }
+        
+        .btn-primary:hover { 
+            background: var(--accent); 
+            border-color: var(--accent); 
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn-secondary:hover { 
+            background: var(--primary); 
+            border-color: var(--primary); 
+            color: var(--bg-pure); 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10, 38, 71, 0.15);
+        }
+
+        /* Vertical Row Highlights Inside Visual Side */
+        .highlights-stack {
+            display: flex;
+            flex-direction: column;
             gap: 15px;
-            margin-top: 60px;
+            z-index: 2;
+            max-width: 500px;
         }
 
         .h-item {
-            padding: 20px;
-            border-left: 4px solid var(--gold);
-            background: var(--white);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-align: left;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-        }
-
-        /* --- SECTIONS --- */
-        section { padding: var(--section-padding) 0; }
-        .bg-alt { background-color: var(--light-gray); }
-
-        .section-header { margin-bottom: 60px; text-align: center; }
-        .section-tag { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 800; display: block; margin-bottom: 10px; }
-        .section-header h2 { font-size: 2rem; font-weight: 800; position: relative; padding-bottom: 15px; }
-        .section-header h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--gold); }
-
-        /* --- BENTO GRID --- */
-        .service-bento { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 200px; gap: 20px; }
-        .bento-card { background: var(--white); border-radius: 15px; padding: 30px; display: flex; flex-direction: column; justify-content: center; transition: var(--transition); border: 1px solid #eee; }
-        .bento-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-        .bento-card i { font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; }
-        .bento-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
-        .bento-card p { font-size: 0.8rem; color: #667; }
-        .w-8 { grid-column: span 8; } .w-4 { grid-column: span 4; } .w-6 { grid-column: span 6; } .h-2 { grid-row: span 2; }
-
-        /* --- FLOW --- */
-        .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .flow-box { background: var(--white); padding: 40px 25px; border-radius: 15px; text-align: center; border-bottom: 4px solid transparent; transition: var(--transition); box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .flow-box:hover { border-bottom-color: var(--gold); background: var(--blue); color: white; transform: translateY(-5px); }
-        .flow-box .step { font-size: 2.2rem; font-weight: 900; opacity: 0.15; display: block; margin-bottom: 10px; }
-        .flow-box h4 { font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; }
-
-        /* --- COMPACT GRID --- */
-        .grid-compact { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .card-sm { padding: 25px; background: var(--white); border-radius: 12px; text-align: center; font-weight: 700; font-size: 0.8rem; border: 1px solid #eee; transition: 0.3s; }
-        .card-sm:hover { border-color: var(--gold); color: var(--gold); transform: scale(1.03); }
-
-        /* --- WHY US --- */
-        .why-us { background: radial-gradient(circle at top right, #0d315c 0%, #05162a 100%); color: white; }
-        .why-us h2 { color: var(--gold); }
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .why-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 35px 30px; border-radius: 15px; transition: var(--transition); position: relative; overflow: hidden; }
-        .why-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); transform: scaleY(0); transition: var(--transition); transform-origin: top; }
-        .why-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-5px); }
-        .why-card:hover::before { transform: scaleY(1); }
-        .why-icon-wrapper { background: rgba(214, 175, 55, 0.1); width: 50px; height: 50px; border-radius: 50px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; }
-        .why-icon-wrapper i { color: var(--gold); font-size: 1.2rem; }
-
-        /* --- FOOTER --- */
-        footer { background: #05162a; color: white; padding: 80px 0 30px; border-top: 1px solid rgba(212,175,55,0.2); }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; font-size: 0.8rem; }
-        
-        .footer-logo-box {
+            padding: 22px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--bg-pure);
+            border-radius: 4px;
+            transition: all 0.3s;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .h-item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
         }
 
-        .footer-logo-img {
-            height: 60px;
-            width: fit-content;
-            background: white;
-            padding: 5px;
-            border-radius: 5px;
+        .h-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateX(5px);
         }
 
-        .footer-col h4 { color: var(--gold); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
-        .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.6; font-size: 0.7rem; }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 992px) {
-            .why-grid, .grid-compact { grid-template-columns: repeat(2, 1fr); }
-            .hero h1 { font-size: 2.2rem; }
+        @media (max-width: 1200px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .hero-visual-side { display: none; }
+            .hero-content-side { padding: 100px 4rem; }
+            .hero-section h1 { font-size: 3.2rem; }
         }
 
         @media (max-width: 768px) {
-            :root { --section-padding: 60px; }
+            .hero-content-side { padding: 80px 1.5rem; }
+            .hero-section h1 { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; }
+        }
+
+        /* --- SECTION STRUCTURES --- */
+        section { 
+            padding: 120px 0; 
+            position: relative;
+        }
+        
+        .bg-alt { 
+            background-color: var(--bg-soft); 
+        }
+
+        .section-header { 
+            margin-bottom: 80px; 
+            max-width: 700px;
+        }
+        
+        .section-tag { 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            letter-spacing: 0.15em; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            display: block; 
+            margin-bottom: 15px; 
+        }
+        
+        .section-header h2 { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.8rem; 
+            font-weight: 800; 
+            color: var(--primary);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* --- VISION & MISSION: SYMMETRICAL ALIGNMENT --- */
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            align-items: stretch;
+        }
+        
+        .vm-card {
+            background: var(--bg-card);
+            padding: 55px 45px;
+            border-radius: 6px;
+            border: 1px solid rgba(10, 38, 71, 0.05);
+            box-shadow: 0 10px 30px rgba(10, 38, 71, 0.02);
+            transition: all 0.4s var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vm-card i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+        
+        .vm-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .vm-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            flex-grow: 1;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.06);
+        }
+
+        @media (max-width: 992px) {
+            .vision-mission-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        /* --- CORE SERVICES: PROFESSIONAL GRAPHIC GRID --- */
+        .services-clean-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            align-items: stretch;
+        }
+        
+        .service-clean-card {
+            background: var(--bg-card);
+            transition: var(--transition-speed) var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(10, 38, 71, 0.06);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(10, 38, 71, 0.01);
+        }
+        
+        .service-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%);
+            transition: transform 0.7s var(--transition-smooth);
+        }
+        
+        .service-icon-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-pure);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        
+        .service-content-box {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        
+        .service-clean-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+        
+        .service-clean-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .service-clean-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05);
+        }
+        
+        .service-clean-card:hover .service-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        @media (max-width: 1200px) {
+            .services-clean-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .services-clean-grid { grid-template-columns: 1fr; }
+            .service-content-box { padding: 30px 24px; }
+        }
+
+        /* --- STRATEGIC COMPLIANCE FLOW: STEP BRICKS --- */
+        .flow-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 2px;
+            background: rgba(10, 38, 71, 0.06);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .flow-box { 
+            background: var(--bg-pure); 
+            padding: 50px 35px; 
+            transition: all 0.4s var(--transition-smooth);
+        }
+        
+        .flow-box .step { 
+            font-size: 1rem; 
+            font-weight: 800; 
+            display: block; 
+            margin-bottom: 30px; 
+            color: var(--accent);
+        }
+        
+        .flow-box h4 { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem; 
+            margin-bottom: 15px; 
+            font-weight: 800; 
+            color: var(--primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .flow-box p { 
+            font-size: 0.95rem; 
+            color: var(--text-muted);
+        }
+        
+        .flow-box:hover { 
+            background: var(--primary); 
+            color: var(--bg-pure);
+            transform: scale(1.02);
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.15);
+        }
+        
+        .flow-box:hover h4 { color: var(--bg-pure); }
+        .flow-box:hover p { color: rgba(255, 255, 255, 0.75); }
+
+        @media (max-width: 992px) {
+            .flow-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+        }
+        @media (max-width: 576px) {
+            .flow-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- SUPPORTING DIVERSE BUSINESSES: MATRIX LABELS --- */
+        .business-matrix-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .matrix-item-row {
+            display: flex;
+            align-items: stretch;
+            background: var(--bg-pure);
+            border-left: 3px solid transparent;
+            transition: all 0.3s var(--transition-smooth);
+            padding: 10px;
+        }
+        
+        .matrix-visual-side {
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            color: var(--primary);
+            background: var(--bg-soft);
+            border-radius: 4px;
+        }
+        
+        .matrix-text-side {
+            padding: 25px 35px;
+            flex-grow: 1;
+        }
+        
+        .matrix-text-side h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .matrix-text-side p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Layout Alternation UI Design */
+        .matrix-item-row.fill-light {
+            border-left-color: var(--accent);
+        }
+        .matrix-item-row.fill-dark {
+            border-left-color: var(--primary);
+        }
+        
+        .matrix-item-row:hover {
+            background: var(--bg-pure);
+            transform: translateX(4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        @media (max-width: 992px) {
+            .business-matrix-layout { grid-template-columns: 1fr; }
+        }
+
+        /* --- WHY CHOOSE US: MODERN REDESIGN --- */
+        .why-us { 
+            background: #061527; 
+            color: var(--bg-pure); 
+            position: relative;
+        }
+        
+        .why-us h2 { 
+            color: var(--bg-pure); 
+        }
+        
+        .why-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+        }
+        
+        .why-card-modern { 
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px; 
+            border-radius: 8px;
+            transition: all 0.4s var(--transition-smooth); 
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .why-card-modern p { 
+            font-size: 1.1rem; 
+            font-weight: 500;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .why-icon-badge { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 6px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 30px; 
+            font-size: 1.5rem;
+            background: rgba(212, 175, 55, 0.1); 
+            color: var(--accent);
+            transition: all 0.4s ease;
+        }
+        
+        .why-card-modern:hover { 
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .why-card-modern:hover::before {
+            opacity: 1;
+        }
+
+        .why-card-modern:hover .why-icon-badge {
+            background: var(--accent);
+            color: var(--primary-dark);
+            transform: rotateY(360deg);
+        }
+
+        @media (max-width: 1200px) {
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .why-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- THE ARCHITECTURAL FOOTER --- */
+        footer { 
+            background: #040D12; 
+            color: #94A3B8; 
+            padding: 100px 0 40px; 
+        }
+        
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
+            gap: 60px; 
+        }
+        
+        .footer-brand-box {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-logo-img {
+            height: 55px;
+            width: auto;
+            background: var(--bg-pure);
+            padding: 6px;
+            border-radius: 4px;
+        }
+
+        .footer-brand-title {
+            color: var(--bg-pure);
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .footer-brand-title span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        .footer-col h4 { 
+            color: var(--bg-pure); 
+            margin-bottom: 30px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.08em; 
+            font-size: 0.85rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .address-block {
+            margin-bottom: 25px;
+        }
+        
+        .address-block h5 {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        
+        .address-block p {
+            line-height: 1.6;
+            font-size: 0.9rem;
+            color: #94A3B8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--bg-pure);
+        }
+
+        .footer-bottom { 
+            margin-top: 80px; 
+            padding-top: 30px; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #64748B;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        /* --- RESPONSIVE NAVIGATION DRAWER --- */
+        @media (max-width: 768px) {
             .mobile-toggle { display: block; }
-            .nav-inner { height: 80px; }
-            .nav-logo-img { height: 40px; }
-            .logo-text { font-size: 0.9rem; }
 
             .nav-links {
                 position: fixed;
@@ -214,23 +831,17 @@
                 right: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: white;
+                background: var(--bg-pure);
                 flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                gap: 40px;
-                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                align-items: flex-start;
+                padding: 60px 2rem;
+                gap: 30px;
+                transition: right 0.5s var(--transition-smooth);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             }
 
             .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.2rem; }
-
-            .service-bento, .flow-grid, .why-grid, .grid-compact, .footer-grid { grid-template-columns: 1fr; }
-            .w-8, .w-4, .w-6 { grid-column: span 1; }
-            .service-bento { grid-auto-rows: auto; }
-            .btn-group { flex-direction: column; width: 100%; }
+            .nav-links a { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -238,10 +849,13 @@
 <body>
 
     <nav>
-        <div class="container nav-inner">
+        <div class="nav-inner">
             <a href="index.html" class="logo-container">
                 <img src="VNA.png" alt="Vinu & Associates Logo" class="nav-logo-img">
-                <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+                <div class="logo-text-wrapper">
+                    <div class="logo-text">VINU <span>&</span> ASSOCIATES</div>
+                    <div class="logo-subtext">Practicing Company Secretaries</div>
+                </div>
             </a>
             
             <div class="mobile-toggle" id="mobile-menu">
@@ -258,15 +872,17 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="container" data-aos="fade-up">
+    <header class="hero-section">
+        <div class="hero-content-side" data-aos="fade-right">
             <span class="section-tag">Boutique Compliance Solutions</span>
-            <h1>Elevating Corporate Governance<br>& Compliance Standards</h1>
+            <h1><span class="serif-italic">Elevating Corporate Governance</span><br>& Compliance Standards</h1>
             <div class="btn-group">
                 <a href="contactus.html" class="btn btn-primary">Book Consultation</a>
                 <a href="services.html" class="btn btn-secondary">Our Services</a>
             </div>
-            <div class="highlights-bar">
+        </div>
+        <div class="hero-visual-side" data-aos="fade-left">
+            <div class="highlights-stack">
                 <div class="h-item">20+ Years Experience</div>
                 <div class="h-item">Offices: Bengaluru & Kochi</div>
                 <div class="h-item">SEBI, FEMA & Corporate Laws</div>
@@ -276,37 +892,89 @@
         </div>
     </header>
 
+    <section id="about-essence">
+        <div class="container">
+            <div class="vision-mission-grid">
+                <div class="vm-card" data-aos="fade-up">
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and forward-thinking corporate compliance partner globally, known for establishing benchmark corporate governance frameworks that allow enterprises to scale seamlessly and securely.</p>
+                </div>
+                <div class="vm-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To demystify complex corporate law ecosystem by rendering proactive, meticulous, and tech-driven corporate secretarial solutions. We stand committed to securing timelines, eliminating risk, and guarding stakeholder value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="bg-alt">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <span class="section-tag">Expertise</span>
                 <h2>Core Services</h2>
             </div>
-            <div class="service-bento">
-                <div class="bento-card w-8 h-2">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h3>Compliance & Governance</h3>
-                    <p>Comprehensive support for SEBI LODR, PIT & SAST regulations. Expert handling of NBFC and LLP statutory compliance requirements.</p>
+            
+            <div class="services-clean-grid">
+                <!-- Service 1 -->
+                <div class="service-clean-card" data-aos="fade-up">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Compliance & Governance">
+                        <div class="service-icon-badge"><i class="fa-solid fa-scale-balanced"></i></div>
+                    </div>
+                    <div class="service-content-box">
+                        <h3>Compliance & Governance</h3>
+                        <p>Comprehensive support under Companies Act, RBI, NBFC, SEBI LODR, PIT & SAST and LLP regulations.</p>
+                    </div>
                 </div>
-                <div class="bento-card w-4">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <h3>IPO Advisory</h3>
-                    <p>End-to-end listing compliance and DRHP documentation support.</p>
+
+                <!-- Service 2 -->
+                <div class="service-clean-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80" alt="IPO Advisory">
+                        <div class="service-icon-badge"><i class="fa-solid fa-chart-line"></i></div>
+                    </div>
+                    <div class="service-content-box">
+                        <h3>IPO Advisory</h3>
+                        <p>IPO Due Diligence, IPO Certifications, Compliance Set-up, DRHP & RHP documentation support and End-to-end listing compliance for both Main Board and SME IPOs.</p>
+                    </div>
                 </div>
-                <div class="bento-card w-4">
-                    <i class="fa-solid fa-building"></i>
-                    <h3>Business Setup</h3>
-                    <p>Specialized LLP and Foreign Entity registrations and structuring.</p>
+
+                <!-- Service 3 -->
+                <div class="service-clean-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Business Setup">
+                        <div class="service-icon-badge"><i class="fa-solid fa-building"></i></div>
+                    </div>
+                    <div class="service-content-box">
+                        <h3>Business Setup</h3>
+                        <p>Companies, LLP and Foreign Entity registrations and structuring.</p>
+                    </div>
                 </div>
-                <div class="bento-card w-6">
-                    <i class="fa-solid fa-coins"></i>
-                    <h3>Finance & Valuation</h3>
-                    <p>Private Equity advisory and Registered Valuer asset assessment.</p>
+
+                <!-- Service 4 -->
+                <div class="service-clean-card" data-aos="fade-up">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1634733988138-bf2c3a2a13fa?auto=format&fit=crop&w=600&q=80" alt="Finance & Valuation">
+                        <div class="service-icon-badge"><i class="fa-solid fa-coins"></i></div>
+                    </div>
+                    <div class="service-content-box">
+                        <h3>Finance & Valuation</h3>
+                        <p>Funding advisory and valuation by Registered Valuer.</p>
+                    </div>
                 </div>
-                <div class="bento-card w-6">
-                    <i class="fa-solid fa-gavel"></i>
-                    <h3>Legal Representation</h3>
-                    <p>Expert advocacy before NCLT, RBI, and SEBI regulatory bodies.</p>
+
+                <!-- Service 5 -->
+                <div class="service-clean-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Legal Representation">
+                        <div class="service-icon-badge"><i class="fa-solid fa-gavel"></i></div>
+                    </div>
+                    <div class="service-content-box">
+                        <h3>Legal Representation</h3>
+                        <p>Expert advocacy before ROC, RD, NCLT, RBI, and SEBI regulatory bodies.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,19 +987,19 @@
                 <h2>Strategic Compliance Flow</h2>
             </div>
             <div class="flow-grid">
-                <div class="flow-box" data-aos="fade-up" data-aos-delay="100"><span class="step">01</span>
+                <div class="flow-box" data-aos="fade-up"><span class="step">01</span>
                     <h4>Anticipate</h4>
                     <p>Proactive mapping of regulatory shifts.</p>
                 </div>
-                <div class="flow-box" data-aos="fade-up" data-aos-delay="200"><span class="step">02</span>
+                <div class="flow-box" data-aos="fade-up" data-aos-delay="100"><span class="step">02</span>
                     <h4>Monitor</h4>
                     <p>Real-time governance health checks.</p>
                 </div>
-                <div class="flow-box" data-aos="fade-up" data-aos-delay="300"><span class="step">03</span>
+                <div class="flow-box" data-aos="fade-up" data-aos-delay="200"><span class="step">03</span>
                     <h4>Advise</h4>
                     <p>High-level strategic legal guidance.</p>
                 </div>
-                <div class="flow-box" data-aos="fade-up" data-aos-delay="400"><span class="step">04</span>
+                <div class="flow-box" data-aos="fade-up" data-aos-delay="300"><span class="step">04</span>
                     <h4>Implement</h4>
                     <p>Seamless execution of compliance tasks.</p>
                 </div>
@@ -345,48 +1013,118 @@
                 <span class="section-tag">Impact</span>
                 <h2>Supporting Diverse Businesses</h2>
             </div>
-            <div class="grid-compact">
-                <div class="card-sm">Startups & Emerging</div>
-                <div class="card-sm">Listed Companies</div>
-                <div class="card-sm">Private Limited Entities</div>
-                <div class="card-sm">NBFCs</div>
-                <div class="card-sm">Investors & VC Funds</div>
-                <div class="card-sm">Multinationals (MNCs)</div>
-                <div class="card-sm">Trusts & Societies</div>
-                <div class="card-sm">Manufacturing Units</div>
+            
+            <div class="business-matrix-layout">
+                <!-- Box 1 -->
+                <div class="matrix-item-row fill-light" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Startups & Emerging</h3>
+                        <p>Structuring venture paths, founder agreements, robust cap-table setups, and early growth advisory configurations.</p>
+                    </div>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="matrix-item-row fill-dark" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-building-columns"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Listed Companies</h3>
+                        <p>Continuous dynamic corporate governance management, SEBI disclosures, insider trading DB monitoring, and board listings.</p>
+                    </div>
+                </div>
+
+                <!-- Box 3 -->
+                <div class="matrix-item-row fill-dark" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Private Limited Entities</h3>
+                        <p>End-to-end management of annual regulatory filing processes, board meetings, shareholder changes, and operational governance safeguards.</p>
+                    </div>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="matrix-item-row fill-light" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-coins"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>NBFCs</h3>
+                        <p>Specialist execution of stringent corporate rules, returns auditing compliance requirements framework dictated by RBI frameworks.</p>
+                    </div>
+                </div>
+
+                <!-- Box 5 -->
+                <div class="matrix-item-row fill-light" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-user-shield"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Investors & VC Funds</h3>
+                        <p>Meticulous corporate governance due diligence exercises, target business audits, compliance safety profiling checks.</p>
+                    </div>
+                </div>
+
+                <!-- Box 6 -->
+                <div class="matrix-item-row fill-dark" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Multinationals (MNCs)</h3>
+                        <p>Cross-border commercial operations security, FEMA setups, reporting controls coordination, external structural design protocols.</p>
+                    </div>
+                </div>
+
+                <!-- Box 7 -->
+                <div class="matrix-item-row fill-dark" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Trusts & Societies</h3>
+                        <p>Institutional statutory registrations, structural asset charting support, charity compliance documentation processing.</p>
+                    </div>
+                </div>
+
+                <!-- Box 8 -->
+                <div class="matrix-item-row fill-light" data-aos="fade-up">
+                    <div class="matrix-visual-side"><i class="fa-solid fa-industry"></i></div>
+                    <div class="matrix-text-side">
+                        <h3>Manufacturing Units</h3>
+                        <p>Comprehensive secretarial oversight, environmental compliance support systems, factory operational reporting structures.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="why-us">
-        <div class="container" data-aos="fade-up">
-            <div class="section-header">
-                <span class="section-tag" style="color: rgba(255,255,255,0.6)">The Advantage</span>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag" style="color: rgba(255,255,255,0.4)">The Advantage</span>
                 <h2>Why Choose Us</h2>
             </div>
             <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div>
+                <!-- Card 1 -->
+                <div class="why-card-modern" data-aos="fade-up">
+                    <div class="why-icon-badge"><i class="fa-solid fa-user-tie"></i></div>
                     <p>Qualified CS & Legal team with deep industry knowledge.</p>
                 </div>
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-book-bookmark"></i></div>
+                <!-- Card 2 -->
+                <div class="why-card-modern" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon-badge"><i class="fa-solid fa-book-bookmark"></i></div>
                     <p>Specialized expertise in Companies Act, SEBI, FEMA & NBFC laws.</p>
                 </div>
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-handshake"></i></div>
+                <!-- Card 3 -->
+                <div class="why-card-modern" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon-badge"><i class="fa-solid fa-handshake"></i></div>
                     <p>Proven experience with MNCs, SMEs & Charitable Trusts.</p>
                 </div>
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-users-gear"></i></div>
+                <!-- Card 4 -->
+                <div class="why-card-modern" data-aos="fade-up">
+                    <div class="why-icon-badge"><i class="fa-solid fa-users-gear"></i></div>
                     <p>Client-centric advisory tailored to your unique goals.</p>
                 </div>
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-map-location-dot"></i></div>
+                <!-- Card 5 -->
+                <div class="why-card-modern" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon-badge"><i class="fa-solid fa-map-location-dot"></i></div>
                     <p>Strategic local presence in Bengaluru & Kochi.</p>
                 </div>
-                <div class="why-card">
-                    <div class="why-icon-wrapper"><i class="fa-solid fa-business-time"></i></div>
+                <!-- Card 6 -->
+                <div class="why-card-modern" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon-badge"><i class="fa-solid fa-business-time"></i></div>
                     <p>Strict adherence to regulatory timelines and deadlines.</p>
                 </div>
             </div>
@@ -394,31 +1132,69 @@
     </section>
 
     <footer id="contact">
-        <div class="container footer-grid">
-            <div class="footer-col footer-logo-box">
-                <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                <h2 style="color:var(--gold); font-size: 1.2rem;">VINU & ASSOCIATES</h2>
-                <p style="opacity:0.8;">Providing integrated corporate law, secretarial, and governance solutions to drive sustainable business growth.</p>
+        <div class="container footer-grid" data-aos="fade-up">
+            <div class="footer-col footer-brand-box">
+                <div class="footer-logo-wrap">
+                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
+                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
+                </div>
+                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
             </div>
+            
             <div class="footer-col">
-                <h4>Registered Offices</h4>
-                <p>Bengaluru | Kochi</p>
-                <p style="margin-top: 10px;">Email: bengaluru@csva.in</p>
+                <h4>Offices</h4>
+                <div class="address-block">
+                    <h5>Head Office</h5>
+                    <p>
+                        #155, Suvarna, Ground Floor,<br>
+                        5th Cross, Narayana Nagar 1st Block,<br>
+                        BOOHBCS Layout, Doddakallasandra,<br>
+                        Bengaluru – 5600062
+                    </p>
+                </div>
+                <div class="address-block">
+                    <h5>Branch Office</h5>
+                    <p>
+                        1st Floor, Ram Nivas,<br>
+                        Behind KCF Towers, Lane Adjacent to RoC,<br>
+                        Kerala, Thrikkakara, Ernakulam,<br>
+                        Kerala – 682021
+                    </p>
+                </div>
             </div>
+            
             <div class="footer-col">
                 <h4>Contact Details</h4>
-                <p>Phone: +91 9901952524</p>
-                <p>Phone: +91 9544414067</p>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" style="margin-top: 15px;">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
+                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
+                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
+                    </div>
+                </div>
+                <div class="contact-item" style="margin-top: 15px;">
+                    <i class="fa-solid fa-globe"></i>
+                    <div>
+                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Vinu & Associates. All Rights Reserved.</p>
+            <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true, offset: 100 });
+        AOS.init({ duration: 1200, once: true, offset: 150 });
 
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
