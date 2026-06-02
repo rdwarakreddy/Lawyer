@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Vinu & Associates | Corporate Governance & Compliance</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- --- GOOGLE FONTS & STYLESHEETS --- -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- --- STYLESHEET --- -->
     <style>
         :root {
             --primary: #0A2647;
@@ -21,19 +26,24 @@
             --bg-pure: #FFFFFF;
             --bg-soft: #F8FAFC;
             --bg-card: #FFFFFF;
-            
+
             /* Modern Refined Pastel & Tint Palette */
             --tint-gold: #FDFBF7;
             --tint-blue: #F0F7FF;
             --tint-green: #F2FBF5;
             --tint-slate: #F1F5F9;
-            
-            --section-padding: 100px;
+
+            --section-padding: 60px;
+            /* Reduced from 100px to pull content up */
             --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
             --transition-speed: 0.5s;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-pure);
@@ -44,110 +54,196 @@
             overflow-x: hidden;
         }
 
-        .container { max-width: 1440px; margin: 0 auto; padding: 0 4rem; }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 4rem;
         }
 
-        /* --- MODERN MINIMALIST NAVIGATION --- */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+        }
+
+        /* --- ENHANCED & ENLARGED NAVIGATION BAR (MATCHES INDEX) --- */
         nav {
             position: fixed;
-            top: 0; width: 100%;
+            top: 0;
+            width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.08);
             transition: var(--transition-speed) var(--transition-smooth);
         }
+
         .nav-inner {
-            height: 90px;
+            height: 110px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 4rem;
         }
-        @media (max-width: 768px) {
-            .nav-inner { padding: 0 1.5rem; height: 80px; }
+
+        @media (max-width: 1200px) {
+            .nav-inner {
+                padding: 0 2rem;
+            }
         }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                height: 90px;
+                padding: 0 1.5rem;
+            }
+        }
+
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 14px;
+            gap: 18px;
         }
+
         .nav-logo-img {
-            height: 50px;
+            height: 70px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+            transition: transform 0.3s ease;
         }
-        .logo-text-wrapper { display: flex; flex-direction: column; }
+
+        @media (max-width: 768px) {
+            .nav-logo-img {
+                height: 55px;
+            }
+        }
+
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-text {
             font-weight: 800;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             letter-spacing: -0.02em;
             text-transform: uppercase;
             line-height: 1.1;
         }
-        .logo-text span { color: var(--accent); }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
         .logo-subtext {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 1px;
+            letter-spacing: 0.06em;
+            margin-top: 3px;
         }
-        .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .logo-subtext {
+                font-size: 0.65rem;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+            align-items: center;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: color 0.3s;
             position: relative;
+            padding: 10px 0;
         }
-        .nav-links a:hover { color: var(--accent); }
+
+        .nav-links a:hover,
+        .nav-links a.active-link {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active-link::after {
+            width: 100%;
+        }
+
         .mobile-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
             z-index: 1100;
+            padding: 5px;
         }
 
-        /* --- REFINED PAGE HEADER --- */
-        .page-header { 
-            padding: 200px 0 100px; 
-            background: linear-gradient(rgba(10, 38, 71, 0.88), rgba(5, 22, 42, 0.96)), 
-                        url('https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        /* --- OPTIMIZED HERO SECTION WITH LIBRARY BACKGROUND & REDUCED BOTTOM SPACE --- */
+        .page-header {
+            padding: 160px 0 50px;
+            /* Reduced padding to bring sections tightly together */
+            background: linear-gradient(rgba(10, 38, 71, 0.88), rgba(5, 22, 42, 0.95)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             text-align: center;
             color: var(--bg-pure);
+            margin-bottom: 0px;
         }
-        .page-header h1 { 
-            font-size: 3.4rem; 
-            font-weight: 800; 
-            margin-bottom: 20px; 
+
+        .page-header h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
             letter-spacing: -0.02em;
         }
-        .breadcrumb { 
-            font-size: 0.85rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 0.15em; 
-            color: var(--accent); 
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
             margin-bottom: 10px;
             display: block;
         }
 
         /* --- COHESIVE EY LAYOUT SECTION --- */
         .ey-services-section {
-            background-color: var(--primary-dark); 
+            background-color: var(--primary-dark);
             color: var(--bg-pure);
             padding: var(--section-padding) 0;
         }
@@ -166,6 +262,7 @@
             top: 140px;
             padding-right: 20px;
         }
+
         .ey-intro-col h2 {
             font-size: 2.8rem;
             font-weight: 800;
@@ -173,12 +270,14 @@
             color: var(--bg-pure);
             letter-spacing: -0.02em;
         }
+
         .ey-intro-col p {
             color: #94A3B8;
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 35px;
         }
+
         .ey-explore-btn {
             display: inline-block;
             padding: 16px 36px;
@@ -192,6 +291,7 @@
             border-radius: 4px;
             transition: all 0.4s var(--transition-smooth);
         }
+
         .ey-explore-btn:hover {
             background: var(--accent);
             border-color: var(--accent);
@@ -202,16 +302,18 @@
 
         /* Column 2: Interactive Menu Buttons */
         .ey-menu-col {
-            border-left: 1px solid rgba(255,255,255,0.08);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
         }
+
         .ey-menu-item {
             width: 100%;
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         .ey-menu-btn {
             width: 100%;
             background: transparent;
@@ -230,27 +332,34 @@
             position: relative;
             letter-spacing: -0.01em;
         }
+
         .ey-menu-btn i {
             font-size: 0.85rem;
             opacity: 0.5;
             transition: var(--transition-speed) var(--transition-smooth);
         }
+
         .ey-menu-btn:hover {
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             color: var(--bg-pure);
         }
+
         .ey-menu-btn.active {
             color: var(--bg-pure);
             font-weight: 700;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
         }
+
         .ey-menu-btn.active::before {
             content: '';
             position: absolute;
-            left: 0; top: 0; bottom: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
             width: 4px;
             background: var(--accent);
         }
+
         .ey-menu-btn.active i {
             transform: translateX(6px);
             color: var(--accent);
@@ -275,11 +384,16 @@
             position: sticky;
             top: 140px;
         }
-        .ey-panel { display: none; }
+
+        .ey-panel {
+            display: none;
+        }
+
         .ey-panel.active {
             display: block;
             animation: fadeIn 0.4s var(--transition-smooth) forwards;
         }
+
         .ey-panel h3 {
             font-size: 1.6rem;
             font-weight: 800;
@@ -289,12 +403,14 @@
             padding-bottom: 18px;
             letter-spacing: -0.01em;
         }
+
         .sub-services-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 18px;
         }
+
         .sub-services-list li {
             font-size: 1rem;
             color: #CBD5E1;
@@ -304,6 +420,7 @@
             font-weight: 500;
             line-height: 1.5;
         }
+
         .sub-services-list li::before {
             content: "•";
             color: var(--accent);
@@ -314,88 +431,228 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* --- THE ARCHITECTURAL FOOTER --- */
-        footer { 
-            background: #040D12; 
-            color: #94A3B8; 
-            padding: 100px 0 40px; 
+        /* --- THE ARCHITECTURAL FOOTER (MATCHES INDEX COMPLETE) --- */
+        footer {
+            background: #040D12;
+            color: #94A3B8;
+            padding: 80px 0 30px;
         }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
-            gap: 60px; 
-        }
-        .footer-brand-box { display: flex; flex-direction: column; gap: 25px; }
-        .footer-logo-wrap { display: flex; align-items: center; gap: 16px; }
-        .footer-logo-img {
-            height: 55px; width: auto;
-            background: var(--bg-pure); padding: 6px;
-            border-radius: 4px;
-        }
-        .footer-brand-title {
-            color: var(--bg-pure); font-size: 1.25rem; font-weight: 800;
-            letter-spacing: -0.02em; line-height: 1.1;
-        }
-        .footer-brand-title span {
-            display: block; font-size: 0.75rem; color: var(--accent);
-            font-weight: 600; letter-spacing: 0.05em; margin-top: 2px;
-        }
-        .footer-col h4 { 
-            color: var(--bg-pure); margin-bottom: 30px; 
-            text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem;
-            font-weight: 700; position: relative; padding-bottom: 10px;
-        }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--accent); }
-        .address-block { margin-bottom: 25px; }
-        .address-block h5 { color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-        .address-block p { line-height: 1.6; font-size: 0.9rem; color: #94A3B8; }
-        .contact-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 0.9rem; }
-        .contact-item i { color: var(--accent); margin-top: 4px; width: 16px; text-align: center; }
-        .contact-item a { color: inherit; text-decoration: none; transition: color 0.3s; }
-        .contact-item a:hover { color: var(--bg-pure); }
-        .footer-bottom { margin-top: 80px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.8rem; color: #64748B; }
 
-        /* --- RESPONSIVE WORKFLOWS --- */
-        @media (max-width: 1024px) {
-            .ey-services-layout { grid-template-columns: 1fr; gap: 40px; min-height: auto; }
-            .ey-intro-col { position: static; padding-right: 0; text-align: center; margin-bottom: 15px; }
-            .ey-intro-col p { margin-bottom: 25px; }
-            .ey-details-col { display: none !important; }
-            .ey-menu-col { border-left: none; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 6px; background: rgba(255, 255, 255, 0.01); overflow: hidden; }
-            .ey-menu-btn { padding: 20px; font-size: 1rem; }
-            .ey-menu-btn i { transform: rotate(90deg); opacity: 0.7; }
-            .ey-menu-btn.active { background: rgba(212, 175, 55, 0.08); color: var(--accent); border-bottom: none; }
-            .ey-menu-btn.active i { transform: rotate(270deg); color: var(--accent); }
-            .ey-menu-btn.active::before { width: 4px; }
-            .ey-menu-item.active-accordion .ey-mobile-inline-content { display: block; animation: fadeIn 0.4s ease forwards; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
         @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
-            .nav-links {
-                position: fixed; top: 80px; right: -100%;
-                width: 100%; height: calc(100vh - 80px);
-                background: var(--bg-pure); flex-direction: column;
-                align-items: flex-start; padding: 60px 2rem; gap: 30px;
-                transition: right 0.5s var(--transition-smooth);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-            .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.1rem; }
-            .page-header { padding: 160px 0 60px; }
-            .page-header h1 { font-size: 2.4rem; }
-            .ey-intro-col h2 { font-size: 2.2rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .footer-col h4 {
+            color: var(--bg-pure);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .office-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .office-card h5 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .office-card p {
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            margin-bottom: 15px;
+        }
+
+        .footer-com-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 15px;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link-item i {
+            color: var(--accent);
+            width: 15px;
+        }
+
+        .contact-link-item:hover {
+            color: var(--bg-pure);
+        }
+
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748B;
+        }
+
+        /* --- RESPONSIVE WORKFLOWS --- */
+        @media (max-width: 1024px) {
+            .ey-services-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                min-height: auto;
+            }
+
+            .ey-intro-col {
+                position: static;
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .ey-intro-col p {
+                margin-bottom: 25px;
+            }
+
+            .ey-details-col {
+                display: none !important;
+            }
+
+            .ey-menu-col {
+                border-left: none;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.01);
+                overflow: hidden;
+            }
+
+            .ey-menu-btn {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .ey-menu-btn i {
+                transform: rotate(90deg);
+                opacity: 0.7;
+            }
+
+            .ey-menu-btn.active {
+                background: rgba(212, 175, 55, 0.08);
+                color: var(--accent);
+                border-bottom: none;
+            }
+
+            .ey-menu-btn.active i {
+                transform: rotate(270deg);
+                color: var(--accent);
+            }
+
+            .ey-menu-btn.active::before {
+                width: 4px;
+            }
+
+            .ey-menu-item.active-accordion .ey-mobile-inline-content {
+                display: block;
+                animation: fadeIn 0.4s ease forwards;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: var(--bg-pure);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+                gap: 35px;
+                transition: right 0.4s var(--transition-smooth);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .page-header {
+                padding: 130px 0 40px;
+            }
+
+            /* Adjusted mobile alignment gaps */
+            .page-header h1 {
+                font-size: 2.4rem;
+            }
+
+            .ey-intro-col h2 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- MODERN NAV BAR -->
+    <!-- MODERN NAV BAR (SYNCHRONIZED WITH INDEX & BLOG REMOVED) -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo-container">
@@ -405,22 +662,21 @@
                     <div class="logo-subtext">Practicing Company Secretaries</div>
                 </div>
             </a>
-            
+
             <div class="mobile-toggle" id="mobile-menu">
                 <i class="fa-solid fa-bars"></i>
             </div>
 
             <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" style="color: var(--accent);">Services</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="services.html" class="active-link">Services</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HEADER SECTION -->
+    <!-- HEADER SECTION (COMPACT HEIGHT WITH PREMIUM LAW LIBRARY IMAGE) -->
     <header class="page-header">
         <div class="container" data-aos="fade-up">
             <p class="breadcrumb">Expertise & Solutions</p>
@@ -431,17 +687,19 @@
     <!-- INTERACTIVE PORTAL SECTION -->
     <section class="ey-services-section">
         <div class="container ey-services-layout">
-            
+
             <!-- COLUMN 1: INTRO TEXT -->
             <div class="ey-intro-col" data-aos="fade-right">
                 <h2>Services</h2>
-                <p>Vinu & Associates delivers robust legal solutions across multiple corporate dimensions. Enabled by deep domain intelligence and experience, our advisory establishes trust through compliance protection across your business timeline.</p>
+                <p>Vinu & Associates delivers robust legal solutions across multiple corporate dimensions. Enabled by
+                    deep domain intelligence and experience, our advisory establishes trust through compliance
+                    protection across your business timeline.</p>
                 <a href="contactus.html" class="ey-explore-btn">Get In Touch</a>
             </div>
 
             <!-- COLUMN 2: INTERACTIVE HEADINGS WITH INLINE MOBILE ACCORDIONS -->
             <div class="ey-menu-col" data-aos="fade-up" id="servicesAccordionMenu">
-                
+
                 <!-- Category 1 -->
                 <div class="ey-menu-item active-accordion" data-target="corp-reg">
                     <button class="ey-menu-btn active" onclick="handleServiceClick(event, 'corp-reg')">
@@ -503,7 +761,8 @@
                             <li>Corporate Governance Audit</li>
                             <li>Legal Documentation Audit</li>
                             <li>Certification of Annual Return in Form MGT-8 and related annual filing support</li>
-                            <li>Certification relating to ESOP, Sweat Equity issuance and other corporate law matters</li>
+                            <li>Certification relating to ESOP, Sweat Equity issuance and other corporate law matters
+                            </li>
                             <li>Certification for Consortium / Multiple Banking Arrangements as per RBI guidelines</li>
                             <li>Advisory and implementation of Corporate Governance standards</li>
                             <li>Drafting of policies under Companies Act, 2013 and SEBI regulations</li>
@@ -564,8 +823,10 @@
                     <div class="ey-mobile-inline-content">
                         <ul class="sub-services-list">
                             <li>Advisory on FEMA matters, including compounding of offences</li>
-                            <li>Setting up of foreign subsidiaries, joint ventures, branch offices, liaison offices and project offices</li>
-                            <li>FDI compliances and approvals under the extant government approval route, wherever applicable</li>
+                            <li>Setting up of foreign subsidiaries, joint ventures, branch offices, liaison offices and
+                                project offices</li>
+                            <li>FDI compliances and approvals under the extant government approval route, wherever
+                                applicable</li>
                             <li>External Commercial Borrowings (ECB) compliances</li>
                             <li>Setting up of entities outside India and related overseas compliances</li>
                         </ul>
@@ -631,7 +892,8 @@
                     <div class="ey-mobile-inline-content">
                         <ul class="sub-services-list">
                             <li>Appearance and petitions before the National Company Law Tribunal (NCLT)</li>
-                            <li>Applications before the Regional Director (RD), Registrar of Companies (RoC) and Official Liquidator (OL)</li>
+                            <li>Applications before the Regional Director (RD), Registrar of Companies (RoC) and
+                                Official Liquidator (OL)</li>
                             <li>Matters relating to shifting of registered office</li>
                             <li>Name rectification matters</li>
                             <li>Compounding of offences and adjudication of penalties</li>
@@ -670,20 +932,14 @@
         </div>
     </section>
 
-    <!-- ARCHITECTURAL FOOTER SECTION -->
+    <!-- ARCHITECTURAL FOOTER SECTION (SYNCHRONIZED WITH INDEX) -->
     <footer id="contact">
         <div class="container footer-grid" data-aos="fade-up">
-            <div class="footer-col footer-brand-box">
-                <div class="footer-logo-wrap">
-                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
-                </div>
-                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
-            </div>
-            
+
+            <!-- Bengaluru Office Information -->
             <div class="footer-col">
-                <h4>Offices</h4>
-                <div class="address-block">
+                <h4>Bengaluru Head Office</h4>
+                <div class="office-card">
                     <h5>Head Office</h5>
                     <p>
                         #155, Suvarna, Ground Floor,<br>
@@ -691,8 +947,24 @@
                         BOOHBCS Layout, Doddakallasandra,<br>
                         Bengaluru – 5600062
                     </p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919544414067" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 95444 14067
+                        </a>
+                        <a href="mailto:bengaluru@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> bengaluru@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
+                    </div>
                 </div>
-                <div class="address-block">
+            </div>
+
+            <!-- Kochi Office Information -->
+            <div class="footer-col">
+                <h4>Kochi Branch Office</h4>
+                <div class="office-card">
                     <h5>Branch Office</h5>
                     <p>
                         1st Floor, Ram Nivas,<br>
@@ -700,33 +972,22 @@
                         Kerala, Thrikkakara, Ernakulam,<br>
                         Kerala – 682021
                     </p>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Contact Details</h4>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
-                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
-                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-globe"></i>
-                    <div>
-                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919074429964" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 90744 29964
+                        </a>
+                        <a href="mailto:kochi@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> kochi@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
                     </div>
                 </div>
             </div>
+
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
@@ -736,21 +997,21 @@
     <script>
         AOS.init({ duration: 1200, once: true, offset: 150 });
 
-        // UNIFIED ENGINE (DESKTOP TABS & MOBILE ACCORDIONS)
+        // UNIFIED ENGINE (FIXED UX HOPPING JUMP GLITCH)
         function handleServiceClick(event, targetId) {
             const width = window.innerWidth;
-            
+
             if (width > 1024) {
                 document.querySelectorAll('.ey-menu-btn').forEach(btn => btn.classList.remove('active'));
                 event.currentTarget.classList.add('active');
-                
+
                 const selectedItem = event.currentTarget.closest('.ey-menu-item');
                 const listData = selectedItem.querySelector('.ey-mobile-inline-content').innerHTML;
                 const listTitle = event.currentTarget.textContent.trim();
-                
+
                 const displayArea = document.getElementById('desktopPanelContent');
                 displayArea.style.opacity = 0;
-                
+
                 setTimeout(() => {
                     displayArea.innerHTML = `<div class="ey-panel active"><h3>${listTitle}</h3>${listData}</div>`;
                     displayArea.style.opacity = 1;
@@ -759,19 +1020,24 @@
             } else {
                 const clickedItem = event.currentTarget.closest('.ey-menu-item');
                 const isCurrentlyActive = clickedItem.classList.contains('active-accordion');
-                
+
+                // Get absolute bounding offsets prior to layout alterations
+                const currentElementTop = clickedItem.getBoundingClientRect().top + window.scrollY;
+
                 document.querySelectorAll('.ey-menu-item').forEach(item => {
                     item.classList.remove('active-accordion');
                     item.querySelector('.ey-menu-btn').classList.remove('active');
                 });
-                
+
                 if (!isCurrentlyActive) {
                     clickedItem.classList.add('active-accordion');
                     event.currentTarget.classList.add('active');
-                    
-                    setTimeout(() => {
-                        clickedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 300);
+
+                    // Maintain native view alignment directly where the user clicked 
+                    window.scrollTo({
+                        top: currentElementTop - 120, // Offsets fixed navigation bar height seamlessly
+                        behavior: 'smooth'
+                    });
                 }
             }
         }
@@ -789,7 +1055,7 @@
 
         window.addEventListener('DOMContentLoaded', initDesktopDisplay);
         window.addEventListener('resize', () => {
-            if(window.innerWidth > 1024) {
+            if (window.innerWidth > 1024) {
                 initDesktopDisplay();
             }
         });
@@ -819,4 +1085,5 @@
         });
     </script>
 </body>
+
 </html>

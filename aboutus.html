@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Vinu & Associates | Leadership & Vision</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- --- GOOGLE FONTS & STYLESHEETS --- -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- --- STYLESHEET --- -->
     <style>
         :root {
             --primary: #0A2647;
@@ -21,18 +26,21 @@
             --bg-pure: #FFFFFF;
             --bg-soft: #F8FAFC;
             --bg-card: #FFFFFF;
-            
-            /* Modern Refined Pastel & Tint Palette */
+
             --tint-gold: #FDFBF7;
             --tint-blue: #F0F7FF;
             --tint-green: #F2FBF5;
             --tint-slate: #F1F5F9;
-            
+
             --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
             --transition-speed: 0.5s;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--bg-pure);
@@ -43,53 +51,104 @@
             letter-spacing: -0.01em;
         }
 
-        .container { 
-            max-width: 1440px; 
-            margin: 0 auto; 
-            padding: 0 4rem; 
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 4rem;
         }
 
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 2rem;
+            }
         }
 
-        /* --- NAVIGATION BAR --- */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+        }
+
+        /* --- BACKGROUND HIGHLIGHTS FOR SECTION TAGS --- */
+        .section-tag-bg {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--primary);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.12);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* --- ENHANCED & ENLARGED NAVIGATION BAR --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.08);
             transition: var(--transition-speed) var(--transition-smooth);
         }
 
         .nav-inner {
-            height: 90px;
+            height: 110px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 4rem;
         }
 
+        @media (max-width: 1200px) {
+            .nav-inner {
+                padding: 0 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-inner { padding: 0 1.5rem; height: 80px; }
+            .nav-inner {
+                height: 90px;
+                padding: 0 1.5rem;
+            }
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 14px;
+            gap: 18px;
         }
 
         .nav-logo-img {
-            height: 50px;
+            height: 70px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-logo-img {
+                height: 55px;
+            }
         }
 
         .logo-text-wrapper {
@@ -100,26 +159,38 @@
         .logo-text {
             font-weight: 800;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             letter-spacing: -0.02em;
             text-transform: uppercase;
             line-height: 1.1;
         }
 
-        .logo-text span { color: var(--accent); }
-        
+        .logo-text span {
+            color: var(--accent);
+        }
+
         .logo-subtext {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 1px;
+            letter-spacing: 0.06em;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .logo-subtext {
+                font-size: 0.65rem;
+            }
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 45px;
             list-style: none;
             align-items: center;
         }
@@ -127,74 +198,217 @@
         .nav-links a {
             text-decoration: none;
             color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: color 0.3s;
             position: relative;
+            padding: 10px 0;
         }
 
         .nav-links a:hover,
-        .nav-links a.active { 
-            color: var(--accent); 
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .mobile-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
             z-index: 1100;
+            padding: 5px;
         }
 
-        /* --- HERO INTRO SECTION --- */
-        .intro-hero-section { 
-            padding: 200px 0 120px; 
-            background: var(--bg-soft);
-            border-bottom: 1px solid rgba(10, 38, 71, 0.05);
-        }
-        .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
-        
-        .section-tag { 
-            color: var(--accent); 
-            text-transform: uppercase; 
-            letter-spacing: 0.15em; 
-            font-size: 0.8rem; 
-            font-weight: 700; 
-            display: block; 
-            margin-bottom: 15px; 
+        /* --- HERO SECTION --- */
+        .hero-section {
+            padding-top: 110px;
+            min-height: 85vh;
+            position: relative;
+            background: linear-gradient(90deg, rgba(10, 38, 71, 0.96) 0%, rgba(10, 38, 71, 0.9) 45%, rgba(10, 38, 71, 0.2) 100%),
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 80px;
         }
 
-        .about-text h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 3.2rem; 
-            font-weight: 800; 
-            color: var(--primary);
-            line-height: 1.2; 
-            margin-bottom: 25px;
-            letter-spacing: -0.03em;
+        @media (max-width: 992px) {
+            .hero-section {
+                background: linear-gradient(180deg, rgba(10, 38, 71, 0.98) 0%, rgba(10, 38, 71, 0.85) 100%),
+                    url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+                min-height: auto;
+                padding-top: 90px;
+                padding-bottom: 80px;
+                margin-bottom: 50px;
+            }
         }
 
-        .about-text h1 span.serif-italic {
+        .hero-container-inner {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-content-side {
+            padding: 80px 0;
+            z-index: 5;
+        }
+
+        .hero-content-side .section-tag-bg {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+        }
+
+        .hero-section h1 {
+            color: var(--bg-pure);
+            font-size: 3.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-section h1 span.serif-italic {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 700;
             color: var(--accent);
-            letter-spacing: -0.01em;
         }
 
-        .about-text p { margin-bottom: 22px; font-size: 1.05rem; color: var(--text-muted); text-align: justify; line-height: 1.75; }
-        .about-text p:first-of-type { font-size: 1.2rem; color: var(--primary); font-weight: 600; line-height: 1.8; letter-spacing: -0.01em; }
-        
-        .about-visual { position: relative; }
-        .about-visual-img {
-            width: 100%;
-            height: 440px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.06);
-            border: 1px solid rgba(10, 38, 71, 0.05);
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.4rem;
+            }
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 16px 34px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.08em;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary-dark);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: var(--bg-pure);
+            background: transparent;
+        }
+
+        .btn-primary:hover {
+            background: var(--bg-pure);
+            border-color: var(--bg-pure);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--bg-pure);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 576px) {
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Hero Badges Stack Right Panel */
+        .hero-badges-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            justify-content: center;
+            padding-left: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-badges-stack {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+        .hero-badge-item {
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--bg-pure);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-badge-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .hero-badge-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(6px);
+            border-color: var(--accent);
+        }
+
+        /* --- GENERAL SECTION STRUCTURING --- */
+        section {
+            padding: 80px 0; /* Reduced general section padding for better flow */
+            position: relative;
         }
 
         /* --- REFINED CIRCULAR PROFILE VISUAL TREATMENT --- */
@@ -209,7 +423,7 @@
             box-shadow: 0 8px 24px rgba(10, 38, 71, 0.08);
             transition: border-color var(--transition-speed) var(--transition-smooth);
         }
-        
+
         .team-img-holder img {
             width: 100%;
             height: 100%;
@@ -229,31 +443,39 @@
         }
 
         /* --- LEADERSHIP --- */
-        .leadership-section { padding: 120px 0; background-color: var(--bg-pure); }
-        
-        .section-header { 
-            margin-bottom: 80px; 
+        .leadership-section {
+            padding: 100px 0 40px 0; /* Reduced bottom padding to compress gap */
+            background-color: var(--bg-pure);
+        }
+
+        .section-header {
+            margin-bottom: 50px; /* Reduced header bottom margin */
             max-width: 700px;
         }
-        
-        .section-header h2 { 
+
+        .section-header h2 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.8rem; 
-            font-weight: 800; 
+            font-size: 2.8rem;
+            font-weight: 800;
             color: var(--primary);
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
 
-        .leader-main-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 100px; }
-        
-        .leader-card { 
-            background: var(--bg-card); 
-            padding: 40px 35px; 
-            border-radius: 8px; 
-            text-align: center; 
-            transition: all 0.4s var(--transition-smooth); 
-            border: 1px solid rgba(10, 38, 71, 0.06); 
+        .leader-main-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 0px; /* Removed bottom margin completely to lower the gap */
+        }
+
+        .leader-card {
+            background: var(--bg-card);
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.4s var(--transition-smooth);
+            border: 1px solid rgba(10, 38, 71, 0.06);
             box-shadow: 0 10px 30px rgba(10, 38, 71, 0.02);
             position: relative;
             overflow: hidden;
@@ -262,49 +484,68 @@
         .leader-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
             background: var(--accent);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
-        .leader-card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.06); 
-            border-color: rgba(212, 175, 55, 0.3); 
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.06);
+            border-color: rgba(212, 175, 55, 0.3);
         }
 
         .leader-card:hover::before {
             opacity: 1;
         }
-        
-        .leader-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; letter-spacing: -0.02em; }
-        
-        .leader-card .role { 
-            color: var(--accent); 
-            font-size: 0.8rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            letter-spacing: 0.1em; 
-            display: block; 
-            margin-bottom: 20px; 
+
+        .leader-card h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
-        .leader-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; text-align: justify; }
+        .leader-card .role {
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .leader-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            text-align: justify;
+        }
 
         /* --- EXTENDED TEAM --- */
         .team-bg {
             background-color: var(--bg-soft);
+            padding: 60px 0 100px 0; /* Reduced top padding to meet the section above seamlessly */
         }
 
-        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        
-        .team-member { 
-            background: var(--bg-card); 
-            padding: 35px 25px; 
-            border-radius: 8px; 
-            text-align: center; 
-            border: 1px solid rgba(10, 38, 71, 0.06); 
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(10, 38, 71, 0.06);
             box-shadow: 0 4px 20px rgba(10, 38, 71, 0.01);
             transition: all 0.4s var(--transition-smooth);
         }
@@ -321,68 +562,51 @@
             box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05);
         }
 
-        .team-member h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; color: var(--primary); letter-spacing: -0.01em; }
-        .team-member p { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .team-member h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+        }
+
+        .team-member p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
         /* --- FOOTER SECTION --- */
-        footer { 
-            background: #040D12; 
-            color: #94A3B8; 
-            padding: 100px 0 40px; 
-        }
-        
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
-            gap: 60px; 
-        }
-        
-        .footer-brand-box {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+        footer {
+            background: #040D12;
+            color: #94A3B8;
+            padding: 80px 0 30px;
         }
 
-        .footer-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
-        .footer-logo-img {
-            height: 55px;
-            width: auto;
-            background: var(--bg-pure);
-            padding: 6px;
-            border-radius: 4px;
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
-        .footer-brand-title {
+        .footer-col h4 {
             color: var(--bg-pure);
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .footer-brand-title span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
-        }
-
-        .footer-col h4 { 
-            color: var(--bg-pure); 
-            margin-bottom: 30px; 
-            text-transform: uppercase; 
-            letter-spacing: 0.08em; 
-            font-size: 0.85rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
             font-weight: 700;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-col h4::after {
@@ -390,110 +614,140 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 30px;
+            width: 35px;
             height: 2px;
             background: var(--accent);
         }
 
-        .address-block {
-            margin-bottom: 25px;
+        .office-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
-        
-        .address-block h5 {
+
+        .office-card h5 {
             color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.02em;
         }
-        
-        .address-block p {
+
+        .office-card p {
             line-height: 1.6;
-            font-size: 0.9rem;
-            color: #94A3B8;
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            margin-bottom: 15px;
         }
 
-        .contact-item {
+        .footer-com-details {
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 18px;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 15px;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 0.9rem;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
-            margin-top: 4px;
-            width: 16px;
-            text-align: center;
-        }
-        
-        .contact-item a {
-            color: inherit;
+            color: #94A3B8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s ease;
         }
-        
-        .contact-item a:hover {
+
+        .contact-link-item i {
+            color: var(--accent);
+            width: 15px;
+        }
+
+        .contact-link-item:hover {
             color: var(--bg-pure);
         }
 
-        .footer-bottom { 
-            margin-top: 80px; 
-            padding-top: 30px; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            text-align: center; 
-            font-size: 0.8rem; 
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.85rem;
             color: #64748B;
         }
 
-        /* --- RESPONSIVE NAVIGATION DRAWER --- */
+        /* --- RESPONSIVE LAYOUTS --- */
         @media (max-width: 1200px) {
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .about-visual { max-width: 600px; margin: 0 auto; width: 100%; }
-            .leader-main-grid { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: repeat(3, 1fr); }
+            .leader-main-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
+            .mobile-toggle {
+                display: block;
+            }
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 right: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 90px);
                 background: var(--bg-pure);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 60px 2rem;
-                gap: 30px;
-                transition: right 0.5s var(--transition-smooth);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+                gap: 35px;
+                transition: right 0.4s var(--transition-smooth);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             }
 
-            .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.1rem; }
-            
-            .intro-hero-section { padding: 160px 0 80px; }
-            .leader-main-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .leader-main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
-            .team-grid { grid-template-columns: 1fr; }
-            .team-member .team-img-holder { width: 130px; height: 130px; }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member .team-img-holder {
+                width: 130px;
+                height: 130px;
+            }
         }
     </style>
 </head>
+
 <body>
 
+    <!-- ========================================== -->
+    <!-- NAVIGATION BAR SECTION                     -->
+    <!-- ========================================== -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo-container">
@@ -503,7 +757,7 @@
                     <div class="logo-subtext">Practicing Company Secretaries</div>
                 </div>
             </a>
-            
+
             <div class="mobile-toggle" id="mobile-menu">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -511,27 +765,40 @@
             <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="aboutus.html" class="active">About Us</a></li>
                 <li><a href="contactus.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="intro-hero-section">
-        <div class="container about-grid">
-            <div class="about-text" data-aos="fade-right">
-                <span class="section-tag">Corporate Visionaries</span>
-                <h1>Leadership & <span class="serif-italic">Vision</span></h1>
-                <p>Vinu & Associates is a Bengaluru-based firm of practicing Company Secretaries with a branch office in Kochi, Kerala. The firm delivers integrated solutions across corporate law, SEBI regulations, FEMA, NBFC advisory, valuation, corporate governance, and regulatory compliance.</p>
-                <p>With a multidisciplinary approach and deep industry expertise, the firm supports startups, SMEs, listed companies, multinational corporations, trusts, and investors through every phase of the business lifecycle.</p>
-            </div>
-            <div class="about-visual" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Corporate Boardroom Compliance Setup" class="about-visual-img">
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
+    <header class="hero-section">
+        <div class="container" style="width:100%;">
+            <div class="hero-container-inner">
+                <div class="hero-content-side" data-aos="fade-right">
+                    <span class="section-tag-bg">Corporate Visionaries</span>
+                    <h1>Leadership & <span class="serif-italic">Vision</span></h1>
+                    <div class="btn-group">
+                        <a href="contactus.html" class="btn btn-primary">Book Consultation</a>
+                        <a href="services.html" class="btn btn-secondary">Our Services</a>
+                    </div>
+                </div>
+                <div class="hero-badges-stack" data-aos="fade-left">
+                    <div class="hero-badge-item"><i class="fa-solid fa-award"></i> 20+ Years Experience</div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-location-dot"></i> Offices: Bengaluru & Kochi
+                    </div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-user-tie"></i> Dedicated Professionals</div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-circle-check"></i> End-to-End Support</div>
+                </div>
             </div>
         </div>
-    </section>
+    </header>
 
+    <!-- ========================================== -->
+    <!-- MEET THE TEAM SECTION                      -->
+    <!-- ========================================== -->
     <section class="leadership-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -546,7 +813,8 @@
                     </div>
                     <h3>Vinu Thomas</h3>
                     <span class="role">Founder & Practicing CS</span>
-                    <p>Over 20 years of expertise in corporate laws, securities laws, IPO advisory, and restructuring strategy. Leads engagements in SEBI, NBFC, and FEMA matters.</p>
+                    <p>Over 20 years of expertise in corporate laws, securities laws, IPO advisory, and restructuring
+                        strategy. Leads engagements in SEBI, NBFC, and FEMA matters.</p>
                 </div>
 
                 <div class="leader-card" data-aos="fade-up" data-aos-delay="100">
@@ -555,7 +823,8 @@
                     </div>
                     <h3>Kasturi Prasad</h3>
                     <span class="role">Head Office – Bengaluru</span>
-                    <p>Expert in governance frameworks, board processes, LLP structuring, and compliance systems with more than two decades of professional experience.</p>
+                    <p>Expert in governance frameworks, board processes, LLP structuring, and compliance systems with
+                        more than two decades of professional experience.</p>
                 </div>
 
                 <div class="leader-card" data-aos="fade-up" data-aos-delay="200">
@@ -564,12 +833,28 @@
                     </div>
                     <h3>Sandra Saju</h3>
                     <span class="role">Branch Head – Kochi</span>
-                    <p>Specializes in secretarial audits, regulatory reporting, policy drafting, and specialized FEMA/NBFC compliance across sectors.</p>
+                    <p>Specializes in secretarial audits, regulatory reporting, policy drafting, and specialized
+                        FEMA/NBFC compliance across sectors.</p>
+                </div>
+
+                <!-- Added 4th Member Slot -->
+                <div class="leader-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-img-holder">
+                        <img src="Image/Manju.jpeg" alt="Executive Leadership Portfolio">
+                    </div>
+                    <h3>Manju</h3>
+                    <span class="role">Corporate Advisory</span>
+                    <p>**Manju Sandeep** is a Company Secretary at Vinu and Associates with expertise in NBFC
+                        regulations, corporate compliance, governance, and RBI/Companies Act compliance.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- PROFESSIONAL STAFF OVERVIEW                -->
+    <!-- ========================================== -->
     <section class="leadership-section team-bg">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -585,7 +870,7 @@
                     <h4>Suseela</h4>
                     <p>Manager – Kochi Office</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="50">
                     <div class="team-img-holder">
                         <img src="Image/Santwana.jpeg" alt="Santwana">
@@ -593,7 +878,7 @@
                     <h4>Santwana</h4>
                     <p>In House Counsel & Advocate</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
                     <div class="team-img-holder">
                         <img src="Image/Aachal pic.jpeg" alt="Aachal">
@@ -601,7 +886,7 @@
                     <h4>Aachal</h4>
                     <p>CS Qualified & Executive</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="150">
                     <div class="team-img-holder">
                         <img src="Image/Archana.jpeg" alt="Archana">
@@ -609,7 +894,7 @@
                     <h4>Archana</h4>
                     <p>CS Compliance Executive</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in">
                     <div class="team-img-holder">
                         <img src="Image/Hima.jpeg" alt="Hima">
@@ -617,7 +902,7 @@
                     <h4>Hima</h4>
                     <p>CS Compliance Executive</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="50">
                     <div class="team-img-holder">
                         <img src="Image/Srishti.jpeg" alt="Srishti">
@@ -625,7 +910,7 @@
                     <h4>Srishti</h4>
                     <p>CS Compliance Executive</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
                     <div class="team-img-holder">
                         <img src="Image/Sarah.jpeg" alt="Sarah">
@@ -633,7 +918,7 @@
                     <h4>Sarah</h4>
                     <p>In House Counsel & Advocate</p>
                 </div>
-                
+
                 <div class="team-member" data-aos="zoom-in" data-aos-delay="150">
                     <div class="team-img-holder">
                         <img src="Image/Athira.jpeg" alt="Athira">
@@ -645,19 +930,16 @@
         </div>
     </section>
 
+    <!-- ========================================== -->
+    <!-- FOOTER SECTION                             -->
+    <!-- ========================================== -->
     <footer id="contact">
         <div class="container footer-grid" data-aos="fade-up">
-            <div class="footer-col footer-brand-box">
-                <div class="footer-logo-wrap">
-                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
-                </div>
-                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
-            </div>
-            
+
+            <!-- Bengaluru Office Information -->
             <div class="footer-col">
-                <h4>Offices</h4>
-                <div class="address-block">
+                <h4>Bengaluru Head Office</h4>
+                <div class="office-card">
                     <h5>Head Office</h5>
                     <p>
                         #155, Suvarna, Ground Floor,<br>
@@ -665,8 +947,24 @@
                         BOOHBCS Layout, Doddakallasandra,<br>
                         Bengaluru – 5600062
                     </p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919544414067" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 95444 14067
+                        </a>
+                        <a href="mailto:bengaluru@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> bengaluru@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
+                    </div>
                 </div>
-                <div class="address-block">
+            </div>
+
+            <!-- Kochi Office Information -->
+            <div class="footer-col">
+                <h4>Kochi Branch Office</h4>
+                <div class="office-card">
                     <h5>Branch Office</h5>
                     <p>
                         1st Floor, Ram Nivas,<br>
@@ -674,42 +972,34 @@
                         Kerala, Thrikkakara, Ernakulam,<br>
                         Kerala – 682021
                     </p>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Contact Details</h4>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
-                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
-                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-globe"></i>
-                    <div>
-                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919074429964" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 90744 29964
+                        </a>
+                        <a href="mailto:kochi@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> kochi@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
                     </div>
                 </div>
             </div>
+
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- INTERACTIVE JAVASCRIPT ARCHITECTURE        -->
+    <!-- ========================================== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true, offset: 150 });
-        
+
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         const icon = menuToggle.querySelector('i');
@@ -734,4 +1024,5 @@
         });
     </script>
 </body>
+
 </html>

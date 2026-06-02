@@ -22,7 +22,6 @@
             --bg-soft: #F8FAFC;
             --bg-card: #FFFFFF;
             
-            /* Modern Refined Pastel & Tint Palette */
             --tint-gold: #FDFBF7;
             --tint-blue: #F0F7FF;
             --tint-green: #F2FBF5;
@@ -32,7 +31,11 @@
             --transition-speed: 0.5s;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body {
             background-color: var(--bg-pure);
@@ -49,47 +52,60 @@
             padding: 0 4rem; 
         }
 
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
+        @media (max-width: 992px) {
+            .container { padding: 0 2rem; }
         }
 
-        /* --- MODERN MINIMALIST NAVIGATION --- */
+        @media (max-width: 576px) {
+            .container { padding: 0 1.25rem; }
+        }
+
+        /* --- NAVIGATION BAR --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.08);
             transition: var(--transition-speed) var(--transition-smooth);
         }
 
         .nav-inner {
-            height: 90px;
+            height: 110px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 4rem;
         }
 
+        @media (max-width: 1200px) {
+            .nav-inner { padding: 0 2rem; }
+        }
+
         @media (max-width: 768px) {
-            .nav-inner { padding: 0 1.5rem; height: 80px; }
+            .nav-inner { height: 90px; padding: 0 1.5rem; }
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 14px;
+            gap: 18px;
         }
 
         .nav-logo-img {
-            height: 50px;
+            height: 70px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-logo-img { height: 55px; }
         }
 
         .logo-text-wrapper {
@@ -100,7 +116,7 @@
         .logo-text {
             font-weight: 800;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             letter-spacing: -0.02em;
             text-transform: uppercase;
             line-height: 1.1;
@@ -109,17 +125,17 @@
         .logo-text span { color: var(--accent); }
         
         .logo-subtext {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 1px;
+            letter-spacing: 0.06em;
+            margin-top: 3px;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 45px;
             list-style: none;
             align-items: center;
         }
@@ -127,12 +143,13 @@
         .nav-links a {
             text-decoration: none;
             color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: color 0.3s;
             position: relative;
+            padding: 10px 0;
         }
 
         .nav-links a:hover,
@@ -140,25 +157,41 @@
             color: var(--accent); 
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links li.active a::after {
+            width: 100%;
+        }
+
         .mobile-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
             z-index: 1100;
+            padding: 5px;
         }
 
         /* --- PAGE HEADER --- */
         .page-header { 
-            padding: 180px 0 80px; 
+            padding: 210px 0 100px; 
             background: var(--bg-soft); 
             text-align: center;
             border-bottom: 1px solid rgba(10, 38, 71, 0.03);
         }
         
         .page-header h1 { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 3.2rem; 
+            font-size: 3.4rem; 
             font-weight: 800; 
             color: var(--primary); 
             margin-bottom: 15px;
@@ -175,7 +208,7 @@
         }
 
         .breadcrumb { 
-            font-size: 0.8rem; 
+            font-size: 0.85rem; 
             font-weight: 700; 
             text-transform: uppercase; 
             letter-spacing: 0.15em; 
@@ -184,8 +217,12 @@
             display: block;
         }
 
-        /* --- OFFICE LOCATIONS MAP SECTION --- */
-        .location-section { padding: 100px 0; background: var(--bg-pure); }
+        /* --- MAP LOCATIONS SECTION --- */
+        .location-section { 
+            padding: 100px 0; 
+            background: var(--bg-pure); 
+        }
+
         .section-main-title { 
             text-align: center; 
             margin-bottom: 60px; 
@@ -195,8 +232,20 @@
             letter-spacing: -0.02em;
         }
         
-        .office-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .office-card { display: flex; flex-direction: column; }
+        .office-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px; 
+        }
+
+        @media (max-width: 992px) {
+            .office-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+        
+        .office-location-card { 
+            display: flex; 
+            flex-direction: column; 
+        }
         
         .office-title { 
             font-size: 1.6rem; 
@@ -206,7 +255,6 @@
             letter-spacing: -0.01em;
         }
         
-        /* Interactive Map Container Box */
         .map-anchor-wrapper {
             text-decoration: none;
             color: inherit;
@@ -222,7 +270,7 @@
         
         .map-anchor-wrapper:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.1);
+            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.12);
             border-color: rgba(212, 175, 55, 0.3);
         }
 
@@ -233,37 +281,36 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(10, 38, 71, 0.1) 0%, rgba(10, 38, 71, 0.4) 100%);
+            background: linear-gradient(180deg, rgba(10, 38, 71, 0.15) 0%, rgba(10, 38, 71, 0.45) 100%);
             z-index: 1;
             transition: opacity 0.3s ease;
         }
 
         .map-anchor-wrapper:hover::after {
-            opacity: 0.2;
+            opacity: 0.3;
         }
         
         .map-graphic-holder {
             width: 100%;
-            height: 320px;
+            height: 350px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
         
-        /* Map UI elements */
         .map-btn-overlay {
             position: absolute;
             top: 20px;
             left: 20px;
             background: var(--bg-pure);
-            padding: 10px 16px;
+            padding: 10px 18px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             box-shadow: 0 4px 15px rgba(10, 38, 71, 0.15);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -278,29 +325,30 @@
             text-align: center;
             z-index: 2;
         }
+
         .map-pin-indicator i { 
-            font-size: 3rem; 
+            font-size: 3.2rem; 
             color: #ef4444; 
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); 
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35)); 
             animation: bounce 2s infinite ease-in-out;
         }
         
         .map-label-popup {
             background: var(--primary);
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             white-space: nowrap;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            margin-top: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            margin-top: 10px;
             color: var(--bg-pure);
             border-left: 3px solid var(--accent);
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
         .office-address-details {
@@ -308,80 +356,50 @@
         }
 
         .office-address-details h5 { 
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             font-weight: 800; 
             color: var(--primary); 
-            margin-bottom: 10px; 
+            margin-bottom: 12px; 
             text-transform: uppercase;
             letter-spacing: 0.02em;
         }
         
         .office-address-details p { 
-            font-size: 0.95rem; 
+            font-size: 1rem; 
             color: var(--text-muted); 
             line-height: 1.7; 
             font-weight: 500; 
         }
 
-        /* --- THE ARCHITECTURAL FOOTER --- */
-        footer { 
-            background: #040D12; 
-            color: #94A3B8; 
-            padding: 100px 0 40px; 
-        }
-        
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
-            gap: 60px; 
-        }
-        
-        .footer-brand-box {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+        /* --- FOOTER ARCHITECTURE --- */
+        footer {
+            background: #040D12;
+            color: #94A3B8;
+            padding: 80px 0 30px;
         }
 
-        .footer-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
-        .footer-logo-img {
-            height: 55px;
-            width: auto;
-            background: var(--bg-pure);
-            padding: 6px;
-            border-radius: 4px;
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
-        .footer-brand-title {
+        .footer-col h4 {
             color: var(--bg-pure);
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .footer-brand-title span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
-        }
-
-        .footer-col h4 { 
-            color: var(--bg-pure); 
-            margin-bottom: 30px; 
-            text-transform: uppercase; 
-            letter-spacing: 0.08em; 
-            font-size: 0.85rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
             font-weight: 700;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-col h4::after {
@@ -389,88 +407,88 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 30px;
+            width: 35px;
             height: 2px;
             background: var(--accent);
         }
 
-        .address-block {
-            margin-bottom: 25px;
-        }
-        
-        .address-block h5 {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-        
-        .address-block p {
-            line-height: 1.6;
-            font-size: 0.9rem;
-            color: #94A3B8;
+        .office-card-footer {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 18px;
-            font-size: 0.9rem;
-        }
-        
-        .contact-item i {
+        .office-card-footer h5 {
             color: var(--accent);
-            margin-top: 4px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .office-card-footer p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .contact-links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-link-item {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link-item i {
+            color: var(--accent);
             width: 16px;
             text-align: center;
         }
-        
-        .contact-item a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-item a:hover {
+
+        .contact-link-item:hover {
             color: var(--bg-pure);
         }
 
-        .footer-bottom { 
-            margin-top: 80px; 
-            padding-top: 30px; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            text-align: center; 
-            font-size: 0.8rem; 
-            color: #64748B;
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        /* --- RESPONSIVE NAVIGATION DRAWER --- */
+        /* --- RESPONSIVE MOBILE MENU --- */
         @media (max-width: 768px) {
             .mobile-toggle { display: block; }
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 right: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 90px);
                 background: var(--bg-pure);
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 60px 2rem;
-                gap: 30px;
+                padding: 50px 2.5rem;
+                gap: 35px;
                 transition: right 0.5s var(--transition-smooth);
                 box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             }
 
             .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.1rem; }
-            .page-header h1 { font-size: 2.4rem; }
-            .office-grid { grid-template-columns: 1fr; gap: 40px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links a { font-size: 1.15rem; width: 100%; }
+            .page-header h1 { font-size: 2.6rem; }
         }
     </style>
 </head>
@@ -493,7 +511,6 @@
             <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li class="active"><a href="contactus.html">Contact</a></li>
             </ul>
@@ -502,24 +519,24 @@
 
     <header class="page-header">
         <div class="container" data-aos="fade-up">
-            <span class="breadcrumb">Get in Touch / Support</span>
+            <span class="breadcrumb">Get in Touch / Corporate Support</span>
             <h1>Connect With Our <br><span class="serif-italic">Legal & Governance Experts</span></h1>
         </div>
     </header>
 
     <section class="location-section">
         <div class="container">
-            <h2 class="section-main-title" data-aos="fade-up">Our Strategic Offices</h2>
+            <h2 class="section-main-title" data-aos="fade-up">Our Strategic Presence</h2>
             
             <div class="office-grid">
                 
-                <div class="office-card" data-aos="fade-right">
+                <div class="office-location-card" data-aos="fade-right">
                     <h3 class="office-title">India - Bengaluru</h3>
                     
-                    <a href="https://maps.google.com/?q=155,+5th+Cross,+Narayana+Nagar+1st+Block,+Doddakallasandra,+Bengaluru,+Karnataka+560062" target="_blank" class="map-anchor-wrapper">
-                        <div class="map-graphic-holder" style="background-image: url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80');">
+                    <a href="https://maps.google.com/?q=Vinu+and+Associates+Doddakallasandra+Bengaluru" target="_blank" class="map-anchor-wrapper">
+                        <div class="map-graphic-holder" style="background-image: url('https://i.pinimg.com/736x/84/6e/3d/846e3d3c89a13ebc80799247069396ea.jpg');">
                             <div class="map-btn-overlay">
-                                <span>Navigate with Google Maps</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <span>Launch Interactive Map</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </div>
                             <div class="map-pin-indicator">
                                 <i class="fa-solid fa-location-dot"></i>
@@ -533,17 +550,17 @@
                         <p>#155, Suvarna, Ground Floor,<br>
                         5th Cross, Narayana Nagar 1st Block,<br>
                         BOOHBCS Layout, Doddakallasandra,<br>
-                        Bengaluru, Karnataka – 5600062</p>
+                        Bengaluru, Karnataka – 560062</p>
                     </div>
                 </div>
 
-                <div class="office-card" data-aos="fade-left">
+                <div class="office-location-card" data-aos="fade-left">
                     <h3 class="office-title">India - Kochi</h3>
                     
-                    <a href="https://maps.google.com/?q=Ram+Nivas,+Behind+KCF+Towers,+Thrikkakara,+Ernakulam,+Kerala+682021" target="_blank" class="map-anchor-wrapper">
-                        <div class="map-graphic-holder" style="background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80');">
+                    <a href="https://maps.google.com/?q=Thrikkakara+Ernakulam+Kerala" target="_blank" class="map-anchor-wrapper">
+                        <div class="map-graphic-holder" style="background-image: url('https://i.pinimg.com/736x/a2/10/4c/a2104c0200fd4054aa9c1558c964d767.jpg');">
                             <div class="map-btn-overlay">
-                                <span>Navigate with Google Maps</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <span>Launch Interactive Map</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </div>
                             <div class="map-pin-indicator">
                                 <i class="fa-solid fa-location-dot"></i>
@@ -567,69 +584,58 @@
 
     <footer id="contact">
         <div class="container footer-grid" data-aos="fade-up">
-            <div class="footer-col footer-brand-box">
-                <div class="footer-logo-wrap">
-                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
-                </div>
-                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
-            </div>
             
             <div class="footer-col">
-                <h4>Offices</h4>
-                <div class="address-block">
-                    <h5>Head Office</h5>
-                    <p>
-                        #155, Suvarna, Ground Floor,<br>
-                        5th Cross, Narayana Nagar 1st Block,<br>
-                        BOOHBCS Layout, Doddakallasandra,<br>
-                        Bengaluru – 5600062
-                    </p>
-                </div>
-                <div class="address-block">
-                    <h5>Branch Office</h5>
-                    <p>
-                        1st Floor, Ram Nivas,<br>
-                        Behind KCF Towers, Lane Adjacent to RoC,<br>
-                        Kerala, Thrikkakara, Ernakulam,<br>
-                        Kerala – 682021
-                    </p>
+                <h4>Bengaluru Office (HQ)</h4>
+                <div class="office-card-footer">
+                    <h5>Vinu & Associates</h5>
+                    <p>#155, Suvarna, Ground Floor, 5th Cross, Narayana Nagar 1st Block, BOOHBCS Layout, Doddakallasandra, Bengaluru – 560062</p>
+                    <div class="contact-links-stack">
+                        <a href="tel:+919544414067" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 95444 14067
+                        </a>
+                        <a href="tel:+919074429964" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 90744 29964
+                        </a>
+                        <a href="mailto:bengaluru@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> bengaluru@csva.in
+                        </a>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="footer-col">
-                <h4>Contact Details</h4>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
-                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
-                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-globe"></i>
-                    <div>
-                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                <h4>Kochi Office</h4>
+                <div class="office-card-footer">
+                    <h5>Vinu & Associates</h5>
+                    <p>1st Floor, Ram Nivas, Behind KCF Towers, Lane Adjacent to RoC, Thrikkakara, Ernakulam, Kerala – 682021</p>
+                    <div class="contact-links-stack">
+                        <a href="tel:+919544414067" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 95444 14067
+                        </a>
+                        <a href="mailto:kochi@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> kochi@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
                     </div>
                 </div>
             </div>
+
         </div>
+        
         <div class="footer-bottom">
-            <p>© 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
+            <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize Scroll Effects
         AOS.init({ duration: 1200, once: true, offset: 150 });
         
+        // Responsive Menu Toggle Actions
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         const icon = menuToggle.querySelector('i');

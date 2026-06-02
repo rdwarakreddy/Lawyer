@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinu & Associates | Practicing Company Secretaries</title>
 
+    <!-- --- GOOGLE FONTS & STYLESHEETS --- -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- --- STYLESHEET --- -->
     <style>
         :root {
             --primary: #0A2647;
@@ -23,7 +25,6 @@
             --bg-soft: #F8FAFC;
             --bg-card: #FFFFFF;
             
-            /* Modern Refined Pastel & Tint Palette */
             --tint-gold: #FDFBF7;
             --tint-blue: #F0F7FF;
             --tint-green: #F2FBF5;
@@ -54,47 +55,74 @@
             padding: 0 4rem; 
         }
 
-        @media (max-width: 768px) {
-            .container { padding: 0 1.5rem; }
+        @media (max-width: 992px) {
+            .container { padding: 0 2rem; }
         }
 
-        /* --- MODERN MINIMALIST NAVIGATION --- */
+        @media (max-width: 576px) {
+            .container { padding: 0 1.25rem; }
+        }
+
+        /* --- BACKGROUND HIGHLIGHTS FOR SECTION TAGS --- */
+        .section-tag-bg {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--primary);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        /* --- ENHANCED & ENLARGED NAVIGATION BAR --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(10, 38, 71, 0.06);
+            border-bottom: 1px solid rgba(10, 38, 71, 0.08);
             transition: var(--transition-speed) var(--transition-smooth);
         }
 
         .nav-inner {
-            height: 90px;
+            height: 110px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 4rem;
         }
 
+        @media (max-width: 1200px) {
+            .nav-inner { padding: 0 2rem; }
+        }
+
         @media (max-width: 768px) {
-            .nav-inner { padding: 0 1.5rem; height: 80px; }
+            .nav-inner { height: 90px; padding: 0 1.5rem; }
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 14px;
+            gap: 18px;
         }
 
         .nav-logo-img {
-            height: 50px;
+            height: 70px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-logo-img { height: 55px; }
         }
 
         .logo-text-wrapper {
@@ -105,7 +133,7 @@
         .logo-text {
             font-weight: 800;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             letter-spacing: -0.02em;
             text-transform: uppercase;
             line-height: 1.1;
@@ -114,17 +142,22 @@
         .logo-text span { color: var(--accent); }
         
         .logo-subtext {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 1px;
+            letter-spacing: 0.06em;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 480px) {
+            .logo-text { font-size: 1.1rem; }
+            .logo-subtext { font-size: 0.65rem; }
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 45px;
             list-style: none;
             align-items: center;
         }
@@ -132,71 +165,98 @@
         .nav-links a {
             text-decoration: none;
             color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: color 0.3s;
             position: relative;
+            padding: 10px 0;
         }
 
         .nav-links a:hover { 
             color: var(--accent); 
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .mobile-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
             cursor: pointer;
             z-index: 1100;
+            padding: 5px;
         }
 
-        /* --- ASYMMETRIC HERO SPLIT BLOCK --- */
+        /* --- HERO SECTION --- */
         .hero-section {
-            padding-top: 90px;
-            min-height: 100vh;
+            padding-top: 110px;
+            min-height: 85vh;
+            position: relative;
+            background: linear-gradient(90deg, rgba(10, 38, 71, 0.96) 0%, rgba(10, 38, 71, 0.9) 45%, rgba(10, 38, 71, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 80px; /* Gap between Hero and Vision */
+        }
+
+        @media (max-width: 992px) {
+            .hero-section {
+                background: linear-gradient(180deg, rgba(10, 38, 71, 0.98) 0%, rgba(10, 38, 71, 0.85) 100%), 
+                            url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+                min-height: auto;
+                padding-top: 90px;
+                padding-bottom: 80px;
+                margin-bottom: 50px;
+            }
+        }
+
+        .hero-container-inner {
+            width: 100%;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            background: var(--bg-soft);
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .hero-container-inner {
+                grid-template-columns: 1fr;
+            }
         }
 
         .hero-content-side {
-            padding: 120px 4rem 100px 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: var(--bg-pure);
+            padding: 80px 0;
+            z-index: 5;
         }
 
-        .hero-visual-side {
-            background: linear-gradient(rgba(10, 38, 71, 0.85), rgba(5, 22, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-        }
-
-        .hero-section .section-tag {
-            color: var(--accent);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: block;
+        .hero-content-side .section-tag-bg {
+            background-color: var(--accent);
+            color: var(--primary-dark);
         }
 
         .hero-section h1 { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 3.8rem; 
+            color: var(--bg-pure);
+            font-size: 3.6rem; 
             font-weight: 800; 
-            color: var(--primary);
             line-height: 1.2; 
-            margin-bottom: 35px;
-            letter-spacing: -0.03em;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .hero-section h1 span.serif-italic {
@@ -204,111 +264,107 @@
             font-style: italic;
             font-weight: 700;
             color: var(--accent);
-            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.4rem; }
         }
 
         .btn-group { 
             display: flex; 
             gap: 15px; 
-            margin-bottom: 40px;
         }
         
         .btn { 
-            padding: 18px 38px; 
+            padding: 16px 34px; 
             text-decoration: none; 
             text-transform: uppercase; 
-            font-size: 0.8rem; 
+            font-size: 0.85rem; 
             font-weight: 700; 
             border-radius: 4px; 
-            transition: all 0.4s var(--transition-smooth); 
+            transition: all 0.3s ease; 
             letter-spacing: 0.08em;
             display: inline-block;
             text-align: center;
         }
         
         .btn-primary { 
-            background: var(--primary); 
-            color: var(--bg-pure); 
-            border: 1px solid var(--primary); 
+            background: var(--accent); 
+            color: var(--primary-dark); 
+            border: 1px solid var(--accent); 
         }
         
         .btn-secondary { 
-            border: 1px solid rgba(10, 38, 71, 0.15); 
-            color: var(--primary); 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            color: var(--bg-pure); 
             background: transparent; 
         }
         
         .btn-primary:hover { 
-            background: var(--accent); 
-            border-color: var(--accent); 
+            background: var(--bg-pure); 
+            border-color: var(--bg-pure); 
             color: var(--primary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
         .btn-secondary:hover { 
-            background: var(--primary); 
-            border-color: var(--primary); 
-            color: var(--bg-pure); 
+            background: rgba(255,255,255,0.1); 
+            border-color: var(--bg-pure);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(10, 38, 71, 0.15);
         }
 
-        /* Vertical Row Highlights Inside Visual Side */
-        .highlights-stack {
+        @media (max-width: 576px) {
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+        }
+
+        /* Hero Badges Stack Right Panel */
+        .hero-badges-stack {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 2;
-            max-width: 500px;
+            justify-content: center;
+            padding-left: 40px;
         }
 
-        .h-item {
-            padding: 22px 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            font-size: 0.9rem;
+        @media (max-width: 992px) {
+            .hero-badges-stack {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+        .hero-badge-item {
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--bg-pure);
             border-radius: 4px;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 15px;
-        }
-        
-        .h-item::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
-        .h-item:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .hero-badge-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .hero-badge-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(6px);
             border-color: var(--accent);
-            transform: translateX(5px);
         }
 
-        @media (max-width: 1200px) {
-            .hero-section { grid-template-columns: 1fr; }
-            .hero-visual-side { display: none; }
-            .hero-content-side { padding: 100px 4rem; }
-            .hero-section h1 { font-size: 3.2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content-side { padding: 80px 1.5rem; }
-            .hero-section h1 { font-size: 2.5rem; }
-            .btn-group { flex-direction: column; }
-        }
-
-        /* --- SECTION STRUCTURES --- */
+        /* --- GENERAL SECTION STRUCTURING --- */
         section { 
-            padding: 120px 0; 
+            padding: 100px 0; 
             position: relative;
         }
         
@@ -317,164 +373,104 @@
         }
 
         .section-header { 
-            margin-bottom: 80px; 
-            max-width: 700px;
-        }
-        
-        .section-tag { 
-            color: var(--accent); 
-            text-transform: uppercase; 
-            letter-spacing: 0.15em; 
-            font-size: 0.8rem; 
-            font-weight: 700; 
-            display: block; 
-            margin-bottom: 15px; 
+            margin-bottom: 60px; 
+            max-width: 800px;
         }
         
         .section-header h2 { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.8rem; 
+            font-size: 2.6rem; 
             font-weight: 800; 
             color: var(--primary);
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
 
-        /* --- VISION & MISSION: SYMMETRICAL ALIGNMENT --- */
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 2rem; }
+        }
+
+        /* --- VISION & MISSION SECTION --- */
+        #about-essence {
+            margin-bottom: 80px; /* Gap between Vision and Core Competency */
+        }
+        @media (max-width: 992px) {
+            #about-essence { margin-bottom: 50px; }
+        }
+
         .vision-mission-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
-            align-items: stretch;
         }
         
-        .vm-card {
-            background: var(--bg-card);
-            padding: 55px 45px;
-            border-radius: 6px;
-            border: 1px solid rgba(10, 38, 71, 0.05);
-            box-shadow: 0 10px 30px rgba(10, 38, 71, 0.02);
-            transition: all 0.4s var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .vm-card i {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: inline-block;
-        }
-        
-        .vm-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        .vm-card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.75;
-            flex-grow: 1;
-        }
-
-        .vm-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.06);
-        }
-
         @media (max-width: 992px) {
             .vision-mission-grid { grid-template-columns: 1fr; gap: 30px; }
         }
+        
+        .vm-card {
+            padding: 50px 40px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(10, 38, 71, 0.05);
+        }
 
-        /* --- CORE SERVICES: PROFESSIONAL GRAPHIC GRID --- */
+        .vm-card-vision {
+            background: linear-gradient(135deg, #0A2647 0%, #144272 100%);
+            color: var(--bg-pure);
+        }
+
+        .vm-card-mission {
+            background: linear-gradient(135deg, #FDFBF7 0%, #F5EFE0 100%);
+            color: var(--text-main);
+            border-left: 4px solid var(--accent);
+        }
+
+        .vm-card i {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .vm-card-vision i { color: var(--accent); }
+        .vm-card-mission i { color: var(--primary); }
+        
+        .vm-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .vm-card-vision h3 { color: var(--bg-pure); }
+        .vm-card-mission h3 { color: var(--primary); }
+
+        .vm-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .vm-card-vision p { color: rgba(255,255,255,0.9); }
+        .vm-card-mission p { color: var(--text-main); }
+
+        .vm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(10, 38, 71, 0.1);
+        }
+
+        /* --- CORE COMPETENCY (SERVICES) SECTION --- */
+        #services {
+            margin-bottom: 80px; /* Gap between Core Competency and Strategic Flow */
+        }
+        @media (max-width: 992px) {
+            #services { margin-bottom: 50px; }
+        }
+
         .services-clean-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            align-items: stretch;
-        }
-        
-        .service-clean-card {
-            background: var(--bg-card);
-            transition: var(--transition-speed) var(--transition-smooth);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(10, 38, 71, 0.06);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(10, 38, 71, 0.01);
-        }
-        
-        .service-img-wrapper {
-            position: relative;
-            height: 240px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        
-        .service-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(10%);
-            transition: transform 0.7s var(--transition-smooth);
-        }
-        
-        .service-icon-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--bg-pure);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-radius: 4px;
-        }
-        
-        .service-content-box {
-            padding: 35px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            text-align: left;
-        }
-        
-        .service-clean-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.35rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-        }
-        
-        .service-clean-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-
-        .service-clean-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05);
-        }
-        
-        .service-clean-card:hover .service-img-wrapper img {
-            transform: scale(1.06);
+            gap: 30px;
         }
 
         @media (max-width: 1200px) {
@@ -482,40 +478,119 @@
         }
         @media (max-width: 768px) {
             .services-clean-grid { grid-template-columns: 1fr; }
-            .service-content-box { padding: 30px 24px; }
         }
-
-        /* --- STRATEGIC COMPLIANCE FLOW: STEP BRICKS --- */
-        .flow-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 2px;
-            background: rgba(10, 38, 71, 0.06);
-            border-radius: 4px;
+        
+        .service-clean-card {
+            background: var(--bg-card);
+            transition: all 0.4s var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(10, 38, 71, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        
+        .service-img-wrapper {
+            position: relative;
+            height: 220px;
             overflow: hidden;
         }
         
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-icon-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .service-content-box {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        
+        .service-clean-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .service-clean-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .service-clean-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(10, 38, 71, 0.06);
+        }
+        
+        .service-clean-card:hover .service-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* --- STRATEGIC COMPLIANCE FLOW SECTION --- */
+        #flow {
+            margin-bottom: 80px; /* Gap between Strategic Flow and Business Matrix */
+        }
+        @media (max-width: 992px) {
+            #flow { margin-bottom: 50px; }
+        }
+
+        .flow-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .flow-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .flow-grid { grid-template-columns: 1fr; }
+        }
+        
         .flow-box { 
-            background: var(--bg-pure); 
-            padding: 50px 35px; 
-            transition: all 0.4s var(--transition-smooth);
+            background: var(--bg-soft); 
+            padding: 40px 30px; 
+            border-radius: 6px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
         }
         
         .flow-box .step { 
-            font-size: 1rem; 
+            font-size: 1.1rem; 
             font-weight: 800; 
             display: block; 
-            margin-bottom: 30px; 
+            margin-bottom: 20px; 
             color: var(--accent);
         }
         
         .flow-box h4 { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.4rem; 
-            margin-bottom: 15px; 
+            font-size: 1.35rem; 
+            margin-bottom: 12px; 
             font-weight: 800; 
             color: var(--primary);
-            letter-spacing: -0.01em;
         }
         
         .flow-box p { 
@@ -525,233 +600,164 @@
         
         .flow-box:hover { 
             background: var(--primary); 
-            color: var(--bg-pure);
-            transform: scale(1.02);
-            z-index: 2;
-            box-shadow: 0 20px 40px rgba(10, 38, 71, 0.15);
+            transform: translateY(-4px);
+            border-bottom-color: var(--accent);
         }
         
         .flow-box:hover h4 { color: var(--bg-pure); }
-        .flow-box:hover p { color: rgba(255, 255, 255, 0.75); }
+        .flow-box:hover p { color: rgba(255, 255, 255, 0.7); }
 
+        /* --- SUPPORTING DIVERSE BUSINESSES SECTION --- */
+        #industries {
+            margin-bottom: 80px; /* Gap between Business Matrix and Why Choose Us */
+        }
         @media (max-width: 992px) {
-            .flow-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-        }
-        @media (max-width: 576px) {
-            .flow-grid { grid-template-columns: 1fr; }
+            #industries { margin-bottom: 50px; }
         }
 
-        /* --- SUPPORTING DIVERSE BUSINESSES: MATRIX LABELS --- */
         .business-matrix-layout {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .business-matrix-layout { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .business-matrix-layout { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .business-matrix-layout { grid-template-columns: 1fr; }
         }
         
-        .matrix-item-row {
+        .matrix-item-card {
             display: flex;
-            align-items: stretch;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background: var(--bg-pure);
-            border-left: 3px solid transparent;
-            transition: all 0.3s var(--transition-smooth);
-            padding: 10px;
+            border: 1px solid rgba(10, 38, 71, 0.08);
+            border-radius: 8px;
+            padding: 35px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
         
-        .matrix-visual-side {
+        .matrix-icon-wrap {
             width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
+            font-size: 2rem;
             color: var(--primary);
             background: var(--bg-soft);
-            border-radius: 4px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
         }
         
-        .matrix-text-side {
-            padding: 25px 35px;
-            flex-grow: 1;
-        }
-        
-        .matrix-text-side h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.25rem;
+        .matrix-item-card h3 {
+            font-size: 1.15rem;
             font-weight: 800;
-            margin-bottom: 8px;
             color: var(--primary);
             letter-spacing: -0.01em;
+            line-height: 1.3;
         }
         
-        .matrix-text-side p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-muted);
+        .matrix-item-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(10, 38, 71, 0.05);
         }
 
-        /* Layout Alternation UI Design */
-        .matrix-item-row.fill-light {
-            border-left-color: var(--accent);
-        }
-        .matrix-item-row.fill-dark {
-            border-left-color: var(--primary);
-        }
-        
-        .matrix-item-row:hover {
-            background: var(--bg-pure);
-            transform: translateX(4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        .matrix-item-card:hover .matrix-icon-wrap {
+            background: var(--primary);
+            color: var(--accent);
         }
 
-        @media (max-width: 992px) {
-            .business-matrix-layout { grid-template-columns: 1fr; }
-        }
-
-        /* --- WHY CHOOSE US: MODERN REDESIGN --- */
+        /* --- WHY CHOOSE US SECTION --- */
         .why-us { 
             background: #061527; 
             color: var(--bg-pure); 
-            position: relative;
+            margin-bottom: 0; /* Directly abuts footer or flows naturally */
         }
         
-        .why-us h2 { 
-            color: var(--bg-pure); 
-        }
+        .why-us h2 { color: var(--bg-pure); }
         
         .why-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 30px; 
-        }
-        
-        .why-card-modern { 
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px; 
-            border-radius: 8px;
-            transition: all 0.4s var(--transition-smooth); 
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
+            gap: 25px; 
         }
 
-        .why-card-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .why-card-modern p { 
-            font-size: 1.1rem; 
-            font-weight: 500;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .why-icon-badge { 
-            width: 60px; 
-            height: 60px; 
-            border-radius: 6px;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 30px; 
-            font-size: 1.5rem;
-            background: rgba(212, 175, 55, 0.1); 
-            color: var(--accent);
-            transition: all 0.4s ease;
-        }
-        
-        .why-card-modern:hover { 
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(212, 175, 55, 0.4);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .why-card-modern:hover::before {
-            opacity: 1;
-        }
-
-        .why-card-modern:hover .why-icon-badge {
-            background: var(--accent);
-            color: var(--primary-dark);
-            transform: rotateY(360deg);
-        }
-
-        @media (max-width: 1200px) {
+        @media (max-width: 992px) {
             .why-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .why-grid { grid-template-columns: 1fr; }
         }
+        
+        .why-card-modern { 
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 35px; 
+            border-radius: 6px;
+            transition: all 0.3s ease; 
+        }
+        
+        .why-card-modern p { 
+            font-size: 1rem; 
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
 
-        /* --- THE ARCHITECTURAL FOOTER --- */
+        .why-icon-badge { 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 4px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 20px; 
+            font-size: 1.3rem;
+            background: rgba(212, 175, 55, 0.12); 
+            color: var(--accent);
+        }
+        
+        .why-card-modern:hover { 
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* --- FOOTER SECTION --- */
         footer { 
             background: #040D12; 
             color: #94A3B8; 
-            padding: 100px 0 40px; 
+            padding: 80px 0 30px; 
         }
         
         .footer-grid { 
             display: grid; 
-            grid-template-columns: 1.2fr 1.1fr 0.9fr; 
-            gap: 60px; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px; 
         }
         
-        .footer-brand-box {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .footer-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .footer-logo-img {
-            height: 55px;
-            width: auto;
-            background: var(--bg-pure);
-            padding: 6px;
-            border-radius: 4px;
-        }
-
-        .footer-brand-title {
-            color: var(--bg-pure);
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .footer-brand-title span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
 
         .footer-col h4 { 
             color: var(--bg-pure); 
-            margin-bottom: 30px; 
+            margin-bottom: 25px; 
             text-transform: uppercase; 
             letter-spacing: 0.08em; 
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 700;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .footer-col h4::after {
@@ -759,95 +765,102 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 30px;
+            width: 35px;
             height: 2px;
             background: var(--accent);
         }
 
-        .address-block {
-            margin-bottom: 25px;
+        .office-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
         
-        .address-block h5 {
+        .office-card h5 {
             color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.02em;
         }
         
-        .address-block p {
+        .office-card p {
             line-height: 1.6;
-            font-size: 0.9rem;
-            color: #94A3B8;
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            margin-bottom: 15px;
         }
 
-        .contact-item {
+        .footer-com-details {
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 18px;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 15px;
+        }
+
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 0.9rem;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
-            margin-top: 4px;
-            width: 16px;
-            text-align: center;
-        }
-        
-        .contact-item a {
-            color: inherit;
+            color: #94A3B8;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s ease;
         }
-        
-        .contact-item a:hover {
+
+        .contact-link-item i {
+            color: var(--accent);
+            width: 15px;
+        }
+
+        .contact-link-item:hover {
             color: var(--bg-pure);
         }
 
         .footer-bottom { 
-            margin-top: 80px; 
-            padding-top: 30px; 
+            margin-top: 50px; 
+            padding-top: 25px; 
             border-top: 1px solid rgba(255,255,255,0.05); 
             text-align: center; 
-            font-size: 0.8rem; 
+            font-size: 0.85rem; 
             color: #64748B;
         }
 
+        /* --- MOBILE DRAWER OVERLAY --- */
         @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        /* --- RESPONSIVE NAVIGATION DRAWER --- */
-        @media (max-width: 768px) {
             .mobile-toggle { display: block; }
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 right: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 90px);
                 background: var(--bg-pure);
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 60px 2rem;
-                gap: 30px;
-                transition: right 0.5s var(--transition-smooth);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+                gap: 35px;
+                transition: right 0.4s var(--transition-smooth);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             }
 
             .nav-links.active { right: 0; }
-            .nav-links a { font-size: 1.1rem; }
+            .nav-links a { font-size: 1.3rem; }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- ========================================== -->
+    <!-- NAVIGATION BAR SECTION                     -->
+    <!-- ========================================== -->
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo-container">
@@ -862,45 +875,54 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
 
+            <!-- Cleaned Navigation Menu: Home, Services, About Us, Contact Only -->
             <ul class="nav-links" id="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="blogs.html">Blogs</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contactus.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION                               -->
+    <!-- ========================================== -->
     <header class="hero-section">
-        <div class="hero-content-side" data-aos="fade-right">
-            <span class="section-tag">Boutique Compliance Solutions</span>
-            <h1><span class="serif-italic">Elevating Corporate Governance</span><br>& Compliance Standards</h1>
-            <div class="btn-group">
-                <a href="contactus.html" class="btn btn-primary">Book Consultation</a>
-                <a href="services.html" class="btn btn-secondary">Our Services</a>
-            </div>
-        </div>
-        <div class="hero-visual-side" data-aos="fade-left">
-            <div class="highlights-stack">
-                <div class="h-item">20+ Years Experience</div>
-                <div class="h-item">Offices: Bengaluru & Kochi</div>
-                <div class="h-item">SEBI, FEMA & Corporate Laws</div>
-                <div class="h-item">Dedicated Professionals</div>
-                <div class="h-item">End-to-End Support</div>
+        <div class="container" style="width:100%;">
+            <div class="hero-container-inner">
+                <div class="hero-content-side" data-aos="fade-right">
+                    <span class="section-tag-bg">Boutique Compliance Solutions</span>
+                    <h1><span class="serif-italic">Elevating Corporate Governance</span><br>& Compliance Standards</h1>
+                    <div class="btn-group">
+                        <a href="contactus.html" class="btn btn-primary">Book Consultation</a>
+                        <a href="services.html" class="btn btn-secondary">Our Services</a>
+                    </div>
+                </div>
+                <div class="hero-badges-stack" data-aos="fade-left">
+                    <div class="hero-badge-item"><i class="fa-solid fa-award"></i> 20+ Years Experience</div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-location-dot"></i> Offices: Bengaluru & Kochi</div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-user-tie"></i> Dedicated Professionals</div>
+                    <div class="hero-badge-item"><i class="fa-solid fa-circle-check"></i> End-to-End Support</div>
+                </div>
             </div>
         </div>
     </header>
 
+
+    <!-- ========================================== -->
+    <!-- VISION & MISSION SECTION                   -->
+    <!-- ========================================== -->
     <section id="about-essence">
         <div class="container">
             <div class="vision-mission-grid">
-                <div class="vm-card" data-aos="fade-up">
+                <div class="vm-card vm-card-vision" data-aos="fade-up">
                     <i class="fa-solid fa-eye"></i>
                     <h3>Our Vision</h3>
                     <p>To be the most trusted and forward-thinking corporate compliance partner globally, known for establishing benchmark corporate governance frameworks that allow enterprises to scale seamlessly and securely.</p>
                 </div>
-                <div class="vm-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="vm-card vm-card-mission" data-aos="fade-up" data-aos-delay="100">
                     <i class="fa-solid fa-bullseye"></i>
                     <h3>Our Mission</h3>
                     <p>To demystify complex corporate law ecosystem by rendering proactive, meticulous, and tech-driven corporate secretarial solutions. We stand committed to securing timelines, eliminating risk, and guarding stakeholder value.</p>
@@ -909,18 +931,22 @@
         </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- CORE COMPETENCY (SERVICES) SECTION         -->
+    <!-- ========================================== -->
     <section id="services" class="bg-alt">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Expertise</span>
-                <h2>Core Services</h2>
+                <span class="section-tag-bg">Expertise</span>
+                <h2>Core Competency</h2>
             </div>
             
             <div class="services-clean-grid">
-                <!-- Service 1 -->
+                <!-- Card 1: Compliance & Governance -->
                 <div class="service-clean-card" data-aos="fade-up">
                     <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" alt="Compliance & Governance">
+                        <img src="https://i.pinimg.com/736x/68/66/4d/68664da502ec979e8f02ac8b54a16f3d.jpg" alt="Compliance & Governance">
                         <div class="service-icon-badge"><i class="fa-solid fa-scale-balanced"></i></div>
                     </div>
                     <div class="service-content-box">
@@ -929,7 +955,7 @@
                     </div>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Card 2: IPO Advisory -->
                 <div class="service-clean-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80" alt="IPO Advisory">
@@ -941,7 +967,7 @@
                     </div>
                 </div>
 
-                <!-- Service 3 -->
+                <!-- Card 3: Business Setup -->
                 <div class="service-clean-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Business Setup">
@@ -953,10 +979,10 @@
                     </div>
                 </div>
 
-                <!-- Service 4 -->
+                <!-- Card 4: Finance & Valuation -->
                 <div class="service-clean-card" data-aos="fade-up">
                     <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1634733988138-bf2c3a2a13fa?auto=format&fit=crop&w=600&q=80" alt="Finance & Valuation">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Finance & Valuation">
                         <div class="service-icon-badge"><i class="fa-solid fa-coins"></i></div>
                     </div>
                     <div class="service-content-box">
@@ -965,10 +991,10 @@
                     </div>
                 </div>
 
-                <!-- Service 5 -->
+                <!-- Card 5: Legal Representation -->
                 <div class="service-clean-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Legal Representation">
+                        <img src="https://i.pinimg.com/736x/30/82/90/308290bdba47607056fa2f5d7dd7883b.jpg" alt="Legal Representation">
                         <div class="service-icon-badge"><i class="fa-solid fa-gavel"></i></div>
                     </div>
                     <div class="service-content-box">
@@ -980,10 +1006,14 @@
         </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- STRATEGIC COMPLIANCE FLOW SECTION          -->
+    <!-- ========================================== -->
     <section id="flow">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Methodology</span>
+                <span class="section-tag-bg">Methodology</span>
                 <h2>Strategic Compliance Flow</h2>
             </div>
             <div class="flow-grid">
@@ -1007,122 +1037,92 @@
         </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- SUPPORTING DIVERSE BUSINESSES SECTION      -->
+    <!-- ========================================== -->
     <section id="industries" class="bg-alt">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">Impact</span>
+                <span class="section-tag-bg">Impact</span>
                 <h2>Supporting Diverse Businesses</h2>
             </div>
             
             <div class="business-matrix-layout">
-                <!-- Box 1 -->
-                <div class="matrix-item-row fill-light" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-rocket"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Startups & Emerging</h3>
-                        <p>Structuring venture paths, founder agreements, robust cap-table setups, and early growth advisory configurations.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>Startups & Emerging</h3>
                 </div>
 
-                <!-- Box 2 -->
-                <div class="matrix-item-row fill-dark" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-building-columns"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Listed Companies</h3>
-                        <p>Continuous dynamic corporate governance management, SEBI disclosures, insider trading DB monitoring, and board listings.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Listed Companies</h3>
                 </div>
 
-                <!-- Box 3 -->
-                <div class="matrix-item-row fill-dark" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Private Limited Entities</h3>
-                        <p>End-to-end management of annual regulatory filing processes, board meetings, shareholder changes, and operational governance safeguards.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Private Limited Entities</h3>
                 </div>
 
-                <!-- Box 4 -->
-                <div class="matrix-item-row fill-light" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-coins"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>NBFCs</h3>
-                        <p>Specialist execution of stringent corporate rules, returns auditing compliance requirements framework dictated by RBI frameworks.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-coins"></i></div>
+                    <h3>NBFCs</h3>
                 </div>
 
-                <!-- Box 5 -->
-                <div class="matrix-item-row fill-light" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-user-shield"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Investors & VC Funds</h3>
-                        <p>Meticulous corporate governance due diligence exercises, target business audits, compliance safety profiling checks.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Investors & VC Funds</h3>
                 </div>
 
-                <!-- Box 6 -->
-                <div class="matrix-item-row fill-dark" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-earth-americas"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Multinationals (MNCs)</h3>
-                        <p>Cross-border commercial operations security, FEMA setups, reporting controls coordination, external structural design protocols.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3>Multinationals (MNCs)</h3>
                 </div>
 
-                <!-- Box 7 -->
-                <div class="matrix-item-row fill-dark" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-hands-holding-child"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Trusts & Societies</h3>
-                        <p>Institutional statutory registrations, structural asset charting support, charity compliance documentation processing.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <h3>Trusts & Societies</h3>
                 </div>
 
-                <!-- Box 8 -->
-                <div class="matrix-item-row fill-light" data-aos="fade-up">
-                    <div class="matrix-visual-side"><i class="fa-solid fa-industry"></i></div>
-                    <div class="matrix-text-side">
-                        <h3>Manufacturing Units</h3>
-                        <p>Comprehensive secretarial oversight, environmental compliance support systems, factory operational reporting structures.</p>
-                    </div>
+                <div class="matrix-item-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="matrix-icon-wrap"><i class="fa-solid fa-industry"></i></div>
+                    <h3>Manufacturing Units</h3>
                 </div>
             </div>
         </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- WHY CHOOSE US SECTION                      -->
+    <!-- ========================================== -->
     <section class="why-us">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag" style="color: rgba(255,255,255,0.4)">The Advantage</span>
+                <span class="section-tag-bg" style="background-color: rgba(255,255,255,0.1); color: var(--accent);">The Advantage</span>
                 <h2>Why Choose Us</h2>
             </div>
             <div class="why-grid">
-                <!-- Card 1 -->
                 <div class="why-card-modern" data-aos="fade-up">
                     <div class="why-icon-badge"><i class="fa-solid fa-user-tie"></i></div>
                     <p>Qualified CS & Legal team with deep industry knowledge.</p>
                 </div>
-                <!-- Card 2 -->
                 <div class="why-card-modern" data-aos="fade-up" data-aos-delay="100">
                     <div class="why-icon-badge"><i class="fa-solid fa-book-bookmark"></i></div>
                     <p>Specialized expertise in Companies Act, SEBI, FEMA & NBFC laws.</p>
                 </div>
-                <!-- Card 3 -->
                 <div class="why-card-modern" data-aos="fade-up" data-aos-delay="200">
                     <div class="why-icon-badge"><i class="fa-solid fa-handshake"></i></div>
                     <p>Proven experience with MNCs, SMEs & Charitable Trusts.</p>
                 </div>
-                <!-- Card 4 -->
                 <div class="why-card-modern" data-aos="fade-up">
                     <div class="why-icon-badge"><i class="fa-solid fa-users-gear"></i></div>
                     <p>Client-centric advisory tailored to your unique goals.</p>
                 </div>
-                <!-- Card 5 -->
                 <div class="why-card-modern" data-aos="fade-up" data-aos-delay="100">
                     <div class="why-icon-badge"><i class="fa-solid fa-map-location-dot"></i></div>
                     <p>Strategic local presence in Bengaluru & Kochi.</p>
                 </div>
-                <!-- Card 6 -->
                 <div class="why-card-modern" data-aos="fade-up" data-aos-delay="200">
                     <div class="why-icon-badge"><i class="fa-solid fa-business-time"></i></div>
                     <p>Strict adherence to regulatory timelines and deadlines.</p>
@@ -1131,19 +1131,17 @@
         </div>
     </section>
 
+
+    <!-- ========================================== -->
+    <!-- FOOTER SECTION                             -->
+    <!-- ========================================== -->
     <footer id="contact">
         <div class="container footer-grid" data-aos="fade-up">
-            <div class="footer-col footer-brand-box">
-                <div class="footer-logo-wrap">
-                    <img src="VNA.png" alt="Vinu & Associates Logo" class="footer-logo-img">
-                    <h2 class="footer-brand-title">VINU & ASSOCIATES<span>Company Secretaries</span></h2>
-                </div>
-                <p>Providing integrated corporate law, secretarial, and governance solutions to drive sustainable corporate business growth.</p>
-            </div>
             
+            <!-- Bengaluru Office Information -->
             <div class="footer-col">
-                <h4>Offices</h4>
-                <div class="address-block">
+                <h4>Bengaluru Head Office</h4>
+                <div class="office-card">
                     <h5>Head Office</h5>
                     <p>
                         #155, Suvarna, Ground Floor,<br>
@@ -1151,8 +1149,24 @@
                         BOOHBCS Layout, Doddakallasandra,<br>
                         Bengaluru – 5600062
                     </p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919544414067" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 95444 14067
+                        </a>
+                        <a href="mailto:bengaluru@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> bengaluru@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
+                    </div>
                 </div>
-                <div class="address-block">
+            </div>
+            
+            <!-- Kochi Office Information -->
+            <div class="footer-col">
+                <h4>Kochi Branch Office</h4>
+                <div class="office-card">
                     <h5>Branch Office</h5>
                     <p>
                         1st Floor, Ram Nivas,<br>
@@ -1160,42 +1174,37 @@
                         Kerala, Thrikkakara, Ernakulam,<br>
                         Kerala – 682021
                     </p>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Contact Details</h4>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <p><a href="tel:+919901952524">+91 99019 52524</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div>
-                        <p><a href="mailto:bengaluru@csva.in">bengaluru@csva.in</a></p>
-                        <p><a href="mailto:info@csva.in">info@csva.in</a></p>
-                        <p><a href="mailto:kochi@csva.in">kochi@csva.in</a></p>
-                    </div>
-                </div>
-                <div class="contact-item" style="margin-top: 15px;">
-                    <i class="fa-solid fa-globe"></i>
-                    <div>
-                        <p><a href="https://www.csva.in" target="_blank">www.csva.in</a></p>
+                    <div class="footer-com-details">
+                        <a href="tel:+919074429964" class="contact-link-item">
+                            <i class="fa-solid fa-phone"></i> +91 90744 29964
+                        </a>
+                        <a href="mailto:kochi@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> kochi@csva.in
+                        </a>
+                        <a href="mailto:info@csva.in" class="contact-link-item">
+                            <i class="fa-solid fa-envelope"></i> info@csva.in
+                        </a>
                     </div>
                 </div>
             </div>
+
         </div>
+        
         <div class="footer-bottom">
             <p>&copy; 2026 Vinu & Associates Company Secretaries. All Rights Reserved.</p>
         </div>
     </footer>
 
+
+    <!-- ========================================== -->
+    <!-- INTERACTIVE JAVASCRIPT ARCHITECTURE        -->
+    <!-- ========================================== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize On-Scroll Animations
         AOS.init({ duration: 1200, once: true, offset: 150 });
 
+        // Mobile Menu Drawer Control Core Logic
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         const icon = menuToggle.querySelector('i');
@@ -1211,6 +1220,7 @@
             }
         });
 
+        // Close drawer seamlessly upon executing link routing actions
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
